@@ -1,5 +1,8 @@
 
-
+## 精简修改friendlywrt
+```sh
+wget https://3wking.github.io/openwrt/remove.sh -O remove.sh && chmod +x remove.sh && ./remove.sh
+```
 ## 精简修改friendlywrt
 ```sh
 wget -O - https://raw.githubusercontent.com/3wking/3wking.github.io/main/openwrt/remove.sh | bash
