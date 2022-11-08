@@ -14,4 +14,6 @@ opkg remove luci-app-sqm --force-removal-of-dependent-packages --autoremove &&
 opkg remove luci-theme-argon &&
 opkg remove luci-theme-material &&
 opkg remove luci-theme-openwrt-2020 &&
-sed -i '$a\src/gz openwrt_kiddin9 https://op.supes.top/packages/aarch64_cortex-a53' $dir
+if ! grep -q "openwrt_kiddin9" $dir; then
+  sed -i '$a\src/gz openwrt_kiddin9 https://op.supes.top/packages/aarch64_cortex-a53' $dir
+fi
