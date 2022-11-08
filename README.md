@@ -1,4 +1,12 @@
 
+## luci-theme-argon
+```sh
+wget https://3wking.github.io/openwrt/luci-theme-argon_2.2.9-20211016-1_all.ipk
+```
+## luci-app-argon-config
+```sh
+wget https://3wking.github.io/openwrt/luci-app-argon-config_0.9-20210309_all.ipk
+```
 ## 精简修改friendlywrt
 ```sh
 wget https://3wking.github.io/openwrt/remove.sh -O remove.sh && chmod +x remove.sh && ./remove.sh
