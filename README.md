@@ -1,6 +1,8 @@
-## 精简friendlywrt
+
+
+## 精简修改friendlywrt
 ```sh
-wget https://3wking.github.io/frp/frps.sh -O frps.sh && chmod +x frps.sh && ./frps.sh
+wget https://3wking.github.io/openwrt/remove.sh -O remove.sh && chmod +x remove.sh && remove.sh
 ```
 ## 安装frps服务端
 ```sh
