@@ -1,9 +1,9 @@
 #!/bin/bash
-DDNS="/etc/ddns"
-ARGON="/etc/argon"
-IPSEC="/etc/ipsec"
-PPTP="/etc/pptpd"
-V2ray="/etc/v2ray_server"
+DDNS="/etc/config/ddns"
+ARGON="/etc/config/argon"
+IPSEC="/etc/config/ipsec"
+PPTP="/etc/config/pptpd"
+V2ray="/etc/config/v2ray_server"
 
 cat >$DDNS<<EOF
 
