@@ -22,8 +22,8 @@ echo 'remove luci-app-samba4（10/11）' &&
 opkg remove luci-app-samba4 --force-removal-of-dependent-packages --autoremove &&
 echo 'remove luci-app-sqm（11/11）' &&
 opkg remove luci-app-sqm --force-removal-of-dependent-packages --autoremove &&
-#echo 'remove luci-theme-argon' &&
-#opkg remove luci-theme-argon &&
+echo 'remove luci-theme-argon' &&
+opkg remove luci-theme-argon &&
 echo 'remove luci-theme-material' &&
 opkg remove luci-theme-material &&
 echo 'remove luci-theme-openwrt-2020' &&
