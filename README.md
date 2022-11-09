@@ -11,9 +11,17 @@ https://3wking.github.io/openwrt/luci-app-argon-config_0.9-20210309_all.ipk
 ```sh
 wget https://3wking.github.io/openwrt/remove.sh -O remove.sh && chmod +x remove.sh && ./remove.sh
 ```
+## 修改配置
+```sh
+wget https://3wking.github.io/openwrt/remove.sh -O config.sh && chmod +x config.sh && ./config.sh
+```
 ## 精简修改friendlywrt
 ```sh
 wget -O - https://raw.githubusercontent.com/3wking/3wking.github.io/main/openwrt/remove.sh | bash
+```
+## 修改配置
+```sh
+wget -O - https://raw.githubusercontent.com/3wking/3wking.github.io/main/openwrt/config.sh | bash
 ```
 ## 安装frps服务端
 ```sh
