@@ -4,6 +4,7 @@ ARGON="/etc/config/argon"
 IPSEC="/etc/config/ipsec"
 PPTP="/etc/config/pptpd"
 V2ray="/etc/config/v2ray_server"
+Firewall="/etc/config/firewall"
 
 
 cat >$DDNS<<EOF
@@ -94,7 +95,7 @@ config user '83d6d883d91c4242bd28d35e2ede7606'
 	option accept_lan '1'
 EOF
 
-cat >> file.txt <<EOF
+cat >>$Firewall<<EOF
 
 config redirect
 	option dest 'lan'
