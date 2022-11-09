@@ -31,4 +31,6 @@ opkg remove luci-theme-openwrt-2020 &&
 if ! grep -q "openwrt_kiddin9" $dir; then
   sed -i '$a\src/gz openwrt_kiddin9 https://op.supes.top/packages/aarch64_cortex-a53' $dir
 fi
-echo '==========OK================'
+echo '================================='
+echo '==========操作完成================'
+echo '================================='
