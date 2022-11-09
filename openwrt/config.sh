@@ -5,6 +5,7 @@ IPSEC="/etc/config/ipsec"
 PPTP="/etc/config/pptpd"
 V2ray="/etc/config/v2ray_server"
 
+
 cat >$DDNS<<EOF
 
 config ddns 'global'
@@ -91,4 +92,233 @@ config user '83d6d883d91c4242bd28d35e2ede7606'
 	option protocol 'vless'
 	option decryption 'none'
 	option accept_lan '1'
+EOF
+
+cat >> file.txt <<EOF
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option src 'wan'
+	option src_dport '8'
+	option dest_ip '10.10.10.254'
+	option dest_port '80'
+	option name '3wking_web'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'V2rray'
+	option src 'wan'
+	option src_dport '4333'
+	option dest_ip '10.10.10.254'
+	option dest_port '4333'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option src 'wan'
+	option src_dport '1723'
+	option dest_ip '10.10.10.254'
+	option dest_port '1723'
+	list proto 'tcp'
+	list proto 'udp'
+	option name 'VPN 1723'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'ASUS_WEB'
+	option src 'wan'
+	option src_dport '6'
+	option dest_ip '10.10.10.253'
+	option dest_port '80'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'NAS_WEB'
+	option src 'wan'
+	option src_dport '2'
+	option dest_ip '10.10.10.252'
+	option dest_port '80'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'NAS_445'
+	option src 'wan'
+	option src_dport '4455'
+	option dest_ip '10.10.10.252'
+	option dest_port '445'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'NAS_5000'
+	option src 'wan'
+	option src_dport '5000'
+	option dest_ip '10.10.10.252'
+	option dest_port '5000'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'NAS_5001'
+	option src 'wan'
+	option src_dport '5001'
+	option dest_ip '10.10.10.252'
+	option dest_port '5001'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'NAS_7000'
+	option src 'wan'
+	option src_dport '7000'
+	option dest_ip '10.10.10.252'
+	option dest_port '7000'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'NAS_8866'
+	option src 'wan'
+	option src_dport '8866'
+	option dest_ip '10.10.10.252'
+	option dest_port '8866'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option src 'wan'
+	option src_dport '8181'
+	option dest_ip '10.10.10.252'
+	option dest_port '8181'
+	option name 'NAS_8181'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'NAS_12580'
+	option src 'wan'
+	option src_dport '12580'
+	option dest_ip '10.10.10.252'
+	option dest_port '12580'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'PVE'
+	option src 'wan'
+	option src_dport '8006'
+	option dest_port '8006'
+	option dest_ip '10.10.10.251'
+
+config include 'softethervpn'
+	option type 'script'
+	option path '/usr/share/softethervpn/firewall.include'
+	option reload '1'
+
+config include 'ipsecvpn'
+	option type 'script'
+	option path '/usr/share/ipsecvpn/firewall.include'
+	option reload '1'
+
+config include 'ipsecd'
+	option type 'script'
+	option path '/etc/ipsec.include'
+	option reload '1'
+
+config rule 'ike'
+	option name 'ike'
+	option target 'ACCEPT'
+	option src 'wan'
+	option proto 'udp'
+	option dest_port '500'
+
+config rule 'ipsec'
+	option name 'ipsec'
+	option target 'ACCEPT'
+	option src 'wan'
+	option proto 'udp'
+	option dest_port '4500'
+
+config rule 'ah'
+	option name 'ah'
+	option target 'ACCEPT'
+	option src 'wan'
+	option proto 'ah'
+
+config rule 'esp'
+	option name 'esp'
+	option target 'ACCEPT'
+	option src 'wan'
+	option proto 'esp'
+
+config zone 'VPN'
+	option name 'VPN'
+	option input 'ACCEPT'
+	option forward 'ACCEPT'
+	option output 'ACCEPT'
+	option network 'VPN'
+
+config forwarding 'vpn'
+	option name 'vpn'
+	option dest 'wan'
+	option src 'VPN'
+
+config include 'pptpd'
+	option type 'script'
+	option path '/etc/pptpd.include'
+	option reload '1'
+
+config rule 'pptp'
+	option name 'pptp'
+	option target 'ACCEPT'
+	option src 'wan'
+	option proto 'tcp'
+	option dest_port '1723'
+
+config rule 'gre'
+	option name 'gre'
+	option target 'ACCEPT'
+	option src 'wan'
+	option proto '47'
+
+config include 'v2ray_server'
+	option type 'script'
+	option path '/var/etc/v2ray_server.include'
+	option reload '1'
+
+config include 'openclash'
+	option type 'script'
+	option path '/var/etc/openclash.include'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option src 'wan'
+	option dest_ip '10.10.10.6'
+	option dest_port '80'
+	option name 'MQTT'
+	option src_dport '183'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'IPTV'
+	option src 'wan'
+	option src_dport '8882'
+	option dest_ip '10.10.10.252'
+	option dest_port '80'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option src 'wan'
+	option dest_ip '10.10.10.252'
+	option name 'TVBOX'
+	option src_dport '882'
+	option dest_port '882'
 EOF
