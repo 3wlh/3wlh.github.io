@@ -37,29 +37,41 @@ echo 'remove luci-theme-openwrt-2020（3/3）'
 opkg remove luci-theme-openwrt-2020 
 #卸载插件
 echo 'remove luci-app-ntpc（1/12）'
-opkg remove luci-app-ntpc --force-removal-of-dependent-packages --autoremove 
+opkg remove luci-app-ntpc --force-removal-of-dependent-packages
+opkg remove ntpclient --force-depends
 echo 'remove luci-app-nft-qos（2/12）'
-opkg remove luci-app-nft-qos --force-removal-of-dependent-packages --autoremove 
+opkg remove luci-app-nft-qos --force-removal-of-dependent-packages 
 echo 'remove uci-app-adblock（3/12）' 
-opkg remove luci-app-adblock --force-removal-of-dependent-packages --autoremove 
+opkg remove luci-app-adblock --force-removal-of-dependent-packages
+opkg remove adblock --force-depends
 echo 'remove luci-app-nlbwmon（4/12）' 
-opkg remove luci-app-nlbwmon --force-removal-of-dependent-packages --autoremove 
+opkg remove luci-app-nlbwmon --force-removal-of-dependent-packages
+opkg remove nlbwmon --force-depends
 echo 'luci-app-watchcat（5/12）' 
-opkg remove luci-app-watchcat --force-removal-of-dependent-packages --autoremove 
+opkg remove luci-app-watchcat --force-removal-of-dependent-packages 
+opkg remove watchcat --force-depends
 echo 'remove luci-app-upnp（6/12）' 
-opkg remove luci-app-upnp --force-removal-of-dependent-packages --autoremove 
+opkg remove luci-app-upnp --force-removal-of-dependent-packages
+opkg remove miniupnpd --force-depends
 echo 'remove luci-app-smartdns（7/12）' 
-opkg remove luci-app-smartdns --force-removal-of-dependent-packages --autoremove 
+opkg remove luci-app-smartdns --force-removal-of-dependent-packages
+opkg remove smartdns --force-depends
 echo 'remove luci-app-aria2（8/12）' 
-opkg remove luci-app-aria2 --force-removal-of-dependent-packages --autoremove 
+opkg remove luci-app-aria2 --force-removal-of-dependent-packages 
+opkg remove aria2 --force-depends
 echo 'remove luci-app-hd-idle（9/12）' 
-opkg remove luci-app-hd-idle --force-removal-of-dependent-packages --autoremove 
+opkg remove luci-app-hd-idle --force-removal-of-dependent-packages 
+opkg remove hd-idle --force-depends
 echo 'remove luci-app-minidlna（10/12）' 
-opkg remove luci-app-minidlna --force-removal-of-dependent-packages --autoremove 
+opkg remove luci-app-minidlna --force-removal-of-dependent-packages
+opkg remove minidlna --force-depends
 echo 'remove luci-app-sqm（11/12）' 
-opkg remove luci-app-sqm --force-removal-of-dependent-packages --autoremove 
+opkg remove luci-app-sqm --force-removal-of-dependent-packages
+opkg remove sqm-scripts --force-depends
 echo 'remove luci-app-samba4（12/12）' 
-opkg remove luci-app-samba4 --force-removal-of-dependent-packages --autoremove 
+opkg remove luci-app-samba4 --force-removal-of-dependent-packages
+opkg remove samba4-server --force-depends
+opkg remove samba4-libs --force-depends
 #删除文件
 rm -rf "/etc/config/watchcat"
 rm -rf "/etc/config/ucitrack"
