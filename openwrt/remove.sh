@@ -78,8 +78,8 @@ rm -rf "/etc/sqm"
 rm -rf "/etc/smartdns"
 rm -rf "/etc/samba"
 #默认
-sed -i 's|option lang 'auto'|option lang 'zh_cn'|g' $dir2
-sed -i 's|option mediaurlbase '/luci-static/argon'|option mediaurlbase '/luci-static/bootstrap'|g' $dir2
+sed -i 's/option lang 'auto'/option lang 'zh_cn'/g' $dir2
+sed -i 's/option mediaurlbase '/luci-static/argon'/option mediaurlbase '/luci-static/bootstrap'/g' $dir2
 #删除语言
 sed -i '/option bg^*/'d $dir2
 sed -i '/option ca^*/'d $dir2
@@ -87,6 +87,7 @@ sed -i '/option cs^*/'d $dir2
 sed -i '/option de^*/'d $dir2
 sed -i '/option el^*/'d $dir2
 sed -i '/option en^*/'d $dir2
+sed -i '/option es^*/'d $dir2
 sed -i '/option fr^*/'d $dir2
 sed -i '/option he^*/'d $dir2
 sed -i '/option hi^*/'d $dir2
@@ -109,8 +110,8 @@ sed -i '/option zh_tw^*/'d $dir2
 #删除主题
 sed -i '/option Argon^*/'d $dir2
 sed -i '/option BootstrapDark^*/'d $dir2
-sed -i 'option BootstrapLight^*/'d $dir2
-sed -i 'option Material^*/'d $dir2
+sed -i '/option BootstrapLight^*/'d $dir2
+sed -i '/option Material^*/'d $dir2
 sed -i '/option OpenWrt2020^*/'d $dir2
 #添加仓库
 if ! grep -q "openwrt_kiddin9" $dir; then
