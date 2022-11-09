@@ -78,8 +78,8 @@ rm -rf "/etc/sqm"
 rm -rf "/etc/smartdns"
 rm -rf "/etc/samba"
 #默认
-sed -i 's/option lang 'auto'/option lang 'zh_cn'/g' $dir2
-sed -i 's/option mediaurlbase '/luci-static/argon'/option mediaurlbase '/luci-static/bootstrap'/g' $dir2
+sed -i 's|option lang 'auto'|option lang 'zh_cn'|g' $dir2
+sed -i 's|option mediaurlbase '/luci-static/argon'|option mediaurlbase '/luci-static/bootstrap'|g' $dir2
 #删除语言
 sed -i '/option bg^*/'d $dir2
 sed -i '/option ca^*/'d $dir2
