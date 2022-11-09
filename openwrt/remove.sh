@@ -79,8 +79,8 @@ rm -rf "/etc/smartdns"
 rm -rf "/etc/samba"
 #默认
 
-sed -i -e "s|^option lang.*|option lang 'zh_cn'|g" $dir
-sed -i -e "s|^option mediaurlbase.*|option mediaurlbase '/luci-static/bootstrap'|g" $dir
+sed -i -e "s|^option lang*|option lang 'zh_cn'|g" $dir
+sed -i -e "s|^option mediaurlbase*|option mediaurlbase '/luci-static/bootstrap'|g" $dir
 #删除语言
 sed -i '/option bg^*/'d $dir2
 sed -i '/option ca^*/'d $dir2
