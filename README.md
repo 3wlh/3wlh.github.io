@@ -13,7 +13,7 @@ wget https://3wking.github.io/openwrt/remove.sh -O remove.sh && chmod +x remove.
 ```
 ## 修改配置
 ```sh
-wget https://3wking.github.io/openwrt/remove.sh -O config.sh && chmod +x config.sh && ./config.sh
+wget https://3wking.github.io/openwrt/config.sh -O config.sh && chmod +x config.sh && ./config.sh
 ```
 ## 精简修改friendlywrt
 ```sh
