@@ -22,12 +22,13 @@ echo 'remove luci-app-samba4（10/11）' &&
 opkg remove luci-app-samba4 --force-removal-of-dependent-packages --autoremove &&
 echo 'remove luci-app-sqm（11/11）' &&
 opkg remove luci-app-sqm --force-removal-of-dependent-packages --autoremove &&
-echo 'remove luci-theme-argon' &&
+echo 'remove luci-theme-argon（1/3）' &&
 opkg remove luci-theme-argon &&
-echo 'remove luci-theme-material' &&
+echo 'remove luci-theme-material（2/3）' &&
 opkg remove luci-theme-material &&
-echo 'remove luci-theme-openwrt-2020' &&
+echo 'remove luci-theme-openwrt-2020（3/3）' &&
 opkg remove luci-theme-openwrt-2020 &&
 if ! grep -q "openwrt_kiddin9" $dir; then
   sed -i '$a\src/gz openwrt_kiddin9 https://op.supes.top/packages/aarch64_cortex-a53' $dir
 fi
+echo '==========OK================'
