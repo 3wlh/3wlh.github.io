@@ -40,7 +40,8 @@ echo 'remove luci-app-ntpc（1/12）'
 opkg remove luci-app-ntpc --force-removal-of-dependent-packages
 opkg remove ntpclient --force-depends
 echo 'remove luci-app-nft-qos（2/12）'
-opkg remove luci-app-nft-qos --force-removal-of-dependent-packages 
+opkg remove luci-app-nft-qos --force-removal-of-dependent-packages
+opkg remove nft-qos --force-depends
 echo 'remove uci-app-adblock（3/12）' 
 opkg remove luci-app-adblock --force-removal-of-dependent-packages
 opkg remove adblock --force-depends
