@@ -29,11 +29,11 @@ echo '（24/26）' && opkg remove luci-i18n-base-uk --force-removal-of-dependent
 echo '（25/26）' && opkg remove luci-i18n-base-vi --force-removal-of-dependent-packages --autoremove 
 echo '（26/26）' && opkg remove luci-i18n-base-zh-tw --force-removal-of-dependent-packages --autoremove 
 #卸载主题
-echo 'remove luci-theme-argon（1/3）' 
-opkg remove luci-theme-argon 
-echo 'remove luci-theme-material（2/3）' 
+#echo 'remove luci-theme-argon（1/3）' 
+#opkg remove luci-theme-argon 
+echo 'remove luci-theme-material（1/2）' 
 opkg remove luci-theme-material 
-echo 'remove luci-theme-openwrt-2020（3/3）' 
+echo 'remove luci-theme-openwrt-2020（2/2）' 
 opkg remove luci-theme-openwrt-2020 
 #卸载插件
 echo 'remove luci-app-ntpc（1/12）'
@@ -121,7 +121,7 @@ sed -i '/option uk^*/'d $dir2
 sed -i '/option vi^*/'d $dir2
 sed -i '/option zh_tw^*/'d $dir2
 #删除主题
-sed -i '/option Argon^*/'d $dir2
+#sed -i '/option Argon^*/'d $dir2
 sed -i '/option BootstrapDark^*/'d $dir2
 sed -i '/option BootstrapLight^*/'d $dir2
 sed -i '/option Material^*/'d $dir2
