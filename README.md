@@ -1,11 +1,10 @@
-
-## luci-theme-argon
+## 精简修改friendlywrt
 ```sh
-https://3wking.github.io/openwrt/luci-theme-argon_2.2.9-20211016-1_all.ipk
+wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/remove.sh | bash
 ```
-## luci-app-argon-config
+## 修改配置
 ```sh
-https://3wking.github.io/openwrt/luci-app-argon-config_0.9-20210309_all.ipk
+wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/config.sh | bash
 ```
 ## 精简修改friendlywrt
 ```sh
@@ -15,14 +14,15 @@ wget https://3wking.github.io/openwrt/remove2.sh -O remove.sh && chmod +x remove
 ```sh
 wget https://3wking.github.io/openwrt/config.sh -O config.sh && chmod +x config.sh && ./config.sh
 ```
-## 精简修改friendlywrt
+## luci-theme-argon
 ```sh
-wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/remove.sh | bash
+https://3wking.github.io/openwrt/luci-theme-argon_2.2.9-20211016-1_all.ipk
 ```
-## 修改配置
+## luci-app-argon-config
 ```sh
-wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/config.sh | bash
+https://3wking.github.io/openwrt/luci-app-argon-config_0.9-20210309_all.ipk
 ```
+
 ## 安装frps服务端
 ```sh
 wget https://3wking.github.io/frp/frps.sh -O frps.sh && chmod +x frps.sh && ./frps.sh
