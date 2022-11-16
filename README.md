@@ -1,6 +1,6 @@
 ## 精简修改friendlywrt
 ```sh
-wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/remove.sh | bash
+wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/remove0.sh | bash
 ```
 ## 修改配置
 ```sh
