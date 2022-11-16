@@ -17,11 +17,11 @@ wget https://3wking.github.io/openwrt/config.sh -O config.sh && chmod +x config.
 ```
 ## 精简修改friendlywrt
 ```sh
-wget -O - https://raw.githubusercontent.com/3wking/3wking.github.io/main/openwrt/remove.sh | bash
+wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/remove.sh | bash
 ```
 ## 修改配置
 ```sh
-wget -O - https://raw.githubusercontent.com/3wking/3wking.github.io/main/openwrt/config.sh | bash
+wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/config.sh | bash
 ```
 ## 安装frps服务端
 ```sh
