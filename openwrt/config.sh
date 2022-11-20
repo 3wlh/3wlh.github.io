@@ -100,11 +100,11 @@ cat >>$Firewall<<EOF
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
+	option name '3wking_web'
 	option src 'wan'
 	option src_dport '8'
 	option dest_ip '10.10.10.254'
 	option dest_port '80'
-	option name '3wking_web'
 
 config redirect
 	option dest 'lan'
@@ -118,22 +118,11 @@ config redirect
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
+	option name 'VPN 1723'
 	option src 'wan'
 	option src_dport '1723'
 	option dest_ip '10.10.10.254'
 	option dest_port '1723'
-	list proto 'tcp'
-	list proto 'udp'
-	option name 'VPN 1723'
-
-config redirect
-	option dest 'lan'
-	option target 'DNAT'
-	option name 'ASUS_WEB'
-	option src 'wan'
-	option src_dport '6'
-	option dest_ip '10.10.10.253'
-	option dest_port '80'
 
 config redirect
 	option dest 'lan'
@@ -147,11 +136,11 @@ config redirect
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
-	option name 'NAS_445'
+	option name 'NAS_455'
 	option src 'wan'
 	option src_dport '4455'
 	option dest_ip '10.10.10.252'
-	option dest_port '445'
+	option dest_port '455'
 
 config redirect
 	option dest 'lan'
@@ -192,11 +181,11 @@ config redirect
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
+	option name 'NAS_8181'
 	option src 'wan'
 	option src_dport '8181'
 	option dest_ip '10.10.10.252'
 	option dest_port '8181'
-	option name 'NAS_8181'
 
 config redirect
 	option dest 'lan'
@@ -213,114 +202,25 @@ config redirect
 	option name 'PVE'
 	option src 'wan'
 	option src_dport '8006'
-	option dest_port '8006'
 	option dest_ip '10.10.10.251'
-
-config include 'softethervpn'
-	option type 'script'
-	option path '/usr/share/softethervpn/firewall.include'
-	option reload '1'
-
-config include 'ipsecvpn'
-	option type 'script'
-	option path '/usr/share/ipsecvpn/firewall.include'
-	option reload '1'
-
-config include 'ipsecd'
-	option type 'script'
-	option path '/etc/ipsec.include'
-	option reload '1'
-
-config rule 'ike'
-	option name 'ike'
-	option target 'ACCEPT'
-	option src 'wan'
-	option proto 'udp'
-	option dest_port '500'
-
-config rule 'ipsec'
-	option name 'ipsec'
-	option target 'ACCEPT'
-	option src 'wan'
-	option proto 'udp'
-	option dest_port '4500'
-
-config rule 'ah'
-	option name 'ah'
-	option target 'ACCEPT'
-	option src 'wan'
-	option proto 'ah'
-
-config rule 'esp'
-	option name 'esp'
-	option target 'ACCEPT'
-	option src 'wan'
-	option proto 'esp'
-
-config zone 'VPN'
-	option name 'VPN'
-	option input 'ACCEPT'
-	option forward 'ACCEPT'
-	option output 'ACCEPT'
-	option network 'VPN'
-
-config forwarding 'vpn'
-	option name 'vpn'
-	option dest 'wan'
-	option src 'VPN'
-
-config include 'pptpd'
-	option type 'script'
-	option path '/etc/pptpd.include'
-	option reload '1'
-
-config rule 'pptp'
-	option name 'pptp'
-	option target 'ACCEPT'
-	option src 'wan'
-	option proto 'tcp'
-	option dest_port '1723'
-
-config rule 'gre'
-	option name 'gre'
-	option target 'ACCEPT'
-	option src 'wan'
-	option proto '47'
-
-config include 'v2ray_server'
-	option type 'script'
-	option path '/var/etc/v2ray_server.include'
-	option reload '1'
-
-config include 'openclash'
-	option type 'script'
-	option path '/var/etc/openclash.include'
+	option dest_port '8006'
 
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
+	option name 'MQTT'
 	option src 'wan'
+	option src_dport '183'
 	option dest_ip '10.10.10.6'
 	option dest_port '80'
-	option name 'MQTT'
-	option src_dport '183'
 
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
-	option name 'IPTV'
-	option src 'wan'
-	option src_dport '8882'
-	option dest_ip '10.10.10.252'
-	option dest_port '80'
-
-config redirect
-	option dest 'lan'
-	option target 'DNAT'
-	option src 'wan'
-	option dest_ip '10.10.10.252'
 	option name 'TVBOX'
+	option src 'wan'
 	option src_dport '882'
+	option dest_ip '10.10.10.252'
 	option dest_port '882'
 EOF
 
