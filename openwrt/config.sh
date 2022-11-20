@@ -127,6 +127,15 @@ config redirect
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
+	option src 'wan'
+	option src_dport '6'
+	option dest_ip '10.10.10.253'
+	option dest_port '80'
+	option name 'ASUS_WEB'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
 	option name 'NAS_WEB'
 	option src 'wan'
 	option src_dport '2'
