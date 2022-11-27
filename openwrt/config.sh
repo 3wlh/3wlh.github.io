@@ -233,6 +233,11 @@ config redirect
 	option dest_port '882'
 EOF
 
+
+echo
+echo
+echo
+echo ''
 echo '================================='
 echo '==========配置完成================'
 echo '================================='
