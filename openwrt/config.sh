@@ -255,7 +255,6 @@ EOF
     [ -a pptpd ] && init_PPTP && echo "PPTP......OK"
     #[ -a firewall ] && init_Firewall && echo "Firewall......OK"
     echo
-    echo
     echo '================================='
     echo '==========配置完成================'
     echo '================================='
