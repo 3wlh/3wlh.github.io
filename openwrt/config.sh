@@ -253,7 +253,7 @@ EOF
     [ -a v2ray_server ] && init_V2ray && echo "V2ray......OK"
     [ -a ipsec ] && init_IPSEC && echo "IPSEC......OK"
     [ -a pptpd ] && init_PPTP && echo "PPTP......OK"
-    [ -a firewall ] && init_Firewall && echo "Firewall......OK"
+    #[ -a firewall ] && init_Firewall && echo "Firewall......OK"
     echo
     echo
     echo '================================='
