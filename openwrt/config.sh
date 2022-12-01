@@ -7,6 +7,8 @@ ARGON="/etc/config/argon"
 V2ray="/etc/config/v2ray_server"
 IPSEC="/etc/config/ipsec"
 PPTP="/etc/config/pptpd"
+Clash="/etc/config/openclash"
+Network="/etc/config/network"
 Firewall="/etc/config/firewall"
 
 #========函数========
@@ -106,6 +108,233 @@ config service 'pptpd'
 config login 'login'
 	option username '3wking'
 	option password 'lh199711'
+EOF
+}
+
+
+init_Clash() {
+cat >$Clash<<EOF
+
+config openclash 'config'
+	option proxy_port '7892'
+	option tproxy_port '7895'
+	option mixed_port '7893'
+	option socks_port '7891'
+	option http_port '7890'
+	option dns_port '7874'
+	option update '0'
+	option cn_port '9090'
+	option dashboard_password '123456'
+	option dashboard_forward_ssl '0'
+	option rule_source '0'
+	option enable_custom_dns '0'
+	option ipv6_enable '0'
+	option ipv6_dns '0'
+	option enable_custom_clash_rules '0'
+	option other_rule_auto_update '0'
+	option en_mode 'redir-host'
+	option enable_redirect_dns '1'
+	option dns_advanced_setting '0'
+	option servers_if_update '0'
+	option disable_masq_cache '0'
+	option servers_update '0'
+	option log_level 'silent'
+	option proxy_mode 'rule'
+	option intranet_allowed '1'
+	option disable_udp_quic '1'
+	option lan_ac_mode '0'
+	option operation_mode 'redir-host'
+	option cachesize_dns '0'
+	option filter_aaaa_dns '0'
+	option small_flash_memory '0'
+	option interface_name '0'
+	option log_size '1024'
+	option tolerance '0'
+	option store_fakeip '1'
+	option custom_fallback_filter '0'
+	option append_wan_dns '1'
+	option stream_domains_prefetch '0'
+	option stream_auto_select '0'
+	option dns_remote '1'
+	option bypass_gateway_compatible '0'
+	option github_address_mod '0'
+	option delay_start '0'
+	option router_self_proxy '1'
+	option release_branch 'master'
+	option enable_meta_core '0'
+	option dashboard_type 'Official'
+	option yacd_type 'Official'
+	option append_default_dns '1'
+	option geo_custom_url 'https://testingcf.jsdelivr.net/gh/alecthw/mmdb_china_ip_list@release/lite/Country.mmdb'
+	option chnr_custom_url 'https://ispip.clang.cn/all_cn.txt'
+	option chnr6_custom_url 'https://ispip.clang.cn/all_cn_ipv6.txt'
+	option cndomain_custom_url 'https://testingcf.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/accelerated-domains.china.conf'
+	option core_version 'linux-arm64'
+	option default_resolvfile '/tmp/resolv.conf.d/resolv.conf.auto'
+	option auto_update '1'
+	option config_auto_update_mode '0'
+	option config_update_week_time '*'
+	option auto_update_time '2'
+	option config_path '/etc/openclash/config/木瓜云.yaml'
+	option restricted_mode '0'
+	option enable_rule_proxy '1'
+	option common_ports '1'
+	option china_ip_route '1'
+	option other_rule_update_week_time '1'
+	option other_rule_update_day_time '0'
+	option geo_auto_update '0'
+	option geo_update_week_time '1'
+	option geo_update_day_time '0'
+	option chnr_auto_update '0'
+	option chnr_update_week_time '1'
+	option chnr_update_day_time '0'
+	option auto_restart '0'
+	option auto_restart_week_time '1'
+	option auto_restart_day_time '0'
+	option enable '1'
+	option dnsmasq_noresolv '0'
+	option dnsmasq_resolvfile '/tmp/resolv.conf.d/resolv.conf.auto'
+	option redirect_dns '1'
+	list wan_ac_black_ips '10.10.10.150'
+	list wan_ac_black_ips '10.10.10.160'
+	list wan_ac_black_ips '10.10.10.252'
+	option enable_udp_proxy '0'
+	option config_reload '1'
+
+config dns_servers
+	option group 'nameserver'
+	option type 'udp'
+	option ip '114.114.114.114'
+	option enabled '1'
+
+config dns_servers
+	option group 'nameserver'
+	option type 'udp'
+	option ip '119.29.29.29'
+	option enabled '1'
+
+config dns_servers
+	option group 'nameserver'
+	option type 'udp'
+	option ip '119.28.28.28'
+	option enabled '0'
+
+config dns_servers
+	option group 'nameserver'
+	option type 'udp'
+	option ip '223.5.5.5'
+	option enabled '0'
+
+config dns_servers
+	option type 'https'
+	option ip 'doh.pub/dns-query'
+	option group 'nameserver'
+	option enabled '1'
+
+config dns_servers
+	option type 'https'
+	option ip 'dns.alidns.com/dns-query'
+	option group 'nameserver'
+	option enabled '1'
+
+config dns_servers
+	option type 'https'
+	option group 'fallback'
+	option ip 'dns.cloudflare.com/dns-query'
+	option enabled '1'
+
+config dns_servers
+	option group 'fallback'
+	option ip 'dns.google'
+	option port '853'
+	option type 'tls'
+	option enabled '0'
+
+config dns_servers
+	option group 'fallback'
+	option type 'https'
+	option ip '1.1.1.1/dns-query'
+	option enabled '0'
+
+config dns_servers
+	option group 'fallback'
+	option ip '1.1.1.1'
+	option port '853'
+	option type 'tls'
+	option enabled '0'
+
+config dns_servers
+	option enabled '0'
+	option group 'fallback'
+	option ip '8.8.8.8'
+	option port '853'
+	option type 'tls'
+
+config dns_servers
+	option type 'udp'
+	option group 'fallback'
+	option ip '2001:4860:4860::8888'
+	option port '53'
+	option enabled '0'
+
+config dns_servers
+	option type 'udp'
+	option group 'fallback'
+	option ip '2001:4860:4860::8844'
+	option port '53'
+	option enabled '0'
+
+config dns_servers
+	option type 'udp'
+	option group 'fallback'
+	option ip '2001:da8::666'
+	option port '53'
+	option enabled '0'
+
+config dns_servers
+	option group 'fallback'
+	option type 'https'
+	option ip 'public.dns.iij.jp/dns-query'
+	option enabled '1'
+
+config dns_servers
+	option group 'fallback'
+	option type 'https'
+	option ip 'jp.tiar.app/dns-query'
+	option enabled '1'
+
+config dns_servers
+	option group 'fallback'
+	option type 'https'
+	option ip 'jp.tiarap.org/dns-query'
+	option enabled '1'
+
+config dns_servers
+	option group 'fallback'
+	option ip 'jp.tiar.app'
+	option type 'tls'
+	option enabled '0'
+
+config dns_servers
+	option group 'fallback'
+	option ip 'dot.tiar.app'
+	option type 'tls'
+	option enabled '1'
+
+config authentication
+	option enabled '1'
+	option username 'Clash'
+	option password 'M0gI64rw'
+
+config config_subscribe
+	option enabled '1'
+	option name '木瓜云'
+	option address 'https://v2.mugua-sub.com/link/DJ8FMih4AiYLEQXc?clash=1&dns=0'
+	option sub_convert '0'
+	list keyword 'V3'
+	list keyword '香港'
+	list keyword '台湾'
+
 EOF
 }
 
@@ -245,6 +474,18 @@ config redirect
 EOF
 }
 
+init_Network() {
+cat >>$Network<<EOF
+
+config interface 'MODE'
+	option proto 'static'
+	option device 'eth2'
+	option ipaddr '192.168.1.1'
+	option gateway '192.168.1.10'
+	option defaultroute '0'
+EOF
+}
+
 #========入口========
 
 (cd $config && {
@@ -253,9 +494,12 @@ EOF
     [ -a v2ray_server ] && init_V2ray && echo "V2ray......OK"
     [ -a ipsec ] && init_IPSEC && echo "IPSEC......OK"
     [ -a pptpd ] && init_PPTP && echo "PPTP......OK"
+    [ -a openclash ] && init_Clash && echo "openclash......OK"
+    [ -a network ] && init_Network && echo "Network......OK"
     [ -a firewall ] && init_Firewall && echo "Firewall......OK"
     echo
+    echo
     echo '================================='
-    echo '==========配置完成==============='
+    echo '==========配置完成================'
     echo '================================='
 })
