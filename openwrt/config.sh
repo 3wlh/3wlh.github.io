@@ -498,7 +498,6 @@ EOF
     [ -a network ] && init_Network && echo "Network......OK"
     [ -a firewall ] && init_Firewall && echo "Firewall......OK"
     echo
-    echo
     echo '================================='
     echo '==========配置完成================'
     echo '================================='
