@@ -43,8 +43,8 @@ config global
 	option primary '#e16496'
 	option blur_dark '1'
 	option transparency '0'
-	option save '淇濆瓨鏇存敼'
 	option blur '1'
+	option save '保存更改'
 EOF
 
 cat >$IPSEC<<EOF
