@@ -1,3 +1,4 @@
+eg:
 # OpenWrt
 ## supes.top
 文字(https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/friendlywrt/remove0.sh)
