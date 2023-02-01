@@ -2,7 +2,7 @@
 
 
 
-# friendlywrt
+# Friendlywrt
 
 ## 精简修改friendlywrt
 ```sh
