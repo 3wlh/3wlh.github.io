@@ -1,6 +1,6 @@
 # OpenWrt
 ## supes.top ：
-##### [编译插件]:https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt//supes.top/luci-app
+##### [编译插件](https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt//supes.top/luci-app)
 ##### [初始化脚本](https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt//supes.top/shell)
 
 ## Friendlywrt ：
@@ -8,11 +8,6 @@
 ```sh
 wget https://3wking.github.io/openwrt/config.sh -O config.sh && chmod +x config.sh && ./config.sh
 ```
-```sh
-wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/config.sh | bash
-```
-
-
 ##### 修改配置_代理
 ```sh
 wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/config.sh | bash
