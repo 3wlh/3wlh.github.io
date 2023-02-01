@@ -1,6 +1,6 @@
 # GO源码 ：
 
 #### 编译GO源码下载
-###### [Download](https://3wking.github.io/GO源码编译/compile_GO.cmd)
+###### [Download](https://3wking.github.io/GO_compile/GO_compile.cmd)
 #### 编译GO源码_精简下载
-###### [Download](https://3wking.github.io/GO源码编译/编译GO源码_精简.cmd)
+###### [Download](https://3wking.github.io/GO_compile/GO_compile_Simplify.cmd)
