@@ -32,7 +32,7 @@ https://3wking.github.io/openwrt/luci-theme-argon_2.2.9-20211016-1_all.ipk
 https://3wking.github.io/openwrt/luci-app-argon-config_0.9-20210309_all.ipk
 ```
 
-#FRP
+# FRP
 ##### 安装frps服务端
 ```sh
 wget https://3wking.github.io/frp/frps.sh -O frps.sh && chmod +x frps.sh && ./frps.sh
