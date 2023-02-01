@@ -1,5 +1,9 @@
 # OpenWrt
 
+
+
+# friendlywrt
+
 ## 精简修改friendlywrt
 ```sh
 wget https://3wking.github.io/openwrt/remove2.sh -O remove.sh && chmod +x remove.sh && ./remove.sh
@@ -16,6 +20,9 @@ wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/remove0.sh | 
 ```sh
 wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/config.sh | bash
 ```
+
+# 插件
+
 ## luci-theme-argon
 ```sh
 https://3wking.github.io/openwrt/luci-theme-argon_2.2.9-20211016-1_all.ipk
