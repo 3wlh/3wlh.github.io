@@ -1,7 +1,6 @@
 # OpenWrt
 ## supes.top
-luci-app
-(https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt//supes.top/luci-app)
+### [luci-app](https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt//supes.top/luci-app)
 
 ## Friendlywrt
 
