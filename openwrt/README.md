@@ -14,11 +14,11 @@ wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/config.sh | b
 ```
 ## 精简修改friendlywrt
 ```sh
-wget https://3wking.github.io/openwrt/Friendlywrt/remove2.sh -O remove.sh && chmod +x remove.sh && ./remove.sh
+wget https://3wking.github.io/openwrt/friendlywrt/remove2.sh -O remove.sh && chmod +x remove.sh && ./remove.sh
 ```
 ## 精简修改friendlywrt_代理
 ```sh
-wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/Friendlywrt/remove0.sh | bash
+wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/friendlywrt/remove0.sh | bash
 ```
 
 # 插件
