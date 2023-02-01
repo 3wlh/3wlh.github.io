@@ -22,7 +22,6 @@ wget https://3wking.github.io/openwrt/friendlywrt/remove2.sh -O remove.sh && chm
 ```sh
 wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt/friendlywrt/remove0.sh | bash
 ```
-
 ## 插件 ：
 ##### luci-theme-argon
 ```sh
@@ -33,19 +32,14 @@ https://3wking.github.io/openwrt/luci-theme-argon_2.2.9-20211016-1_all.ipk
 https://3wking.github.io/openwrt/luci-app-argon-config_0.9-20210309_all.ipk
 ```
 
-## 安装frps服务端
+#FRP
+##### 安装frps服务端
 ```sh
 wget https://3wking.github.io/frp/frps.sh -O frps.sh && chmod +x frps.sh && ./frps.sh
 ```
-## source配置
+
+# proxypool
+##### source配置
 ```sh
 https://3wking.github.io/proxypool/source.conf
-```
-## 编译GO源码下载
-```sh
-https://3wking.github.io/GO源码编译/编译GO源码.cmd
-```
-## 编译GO源码_精简下载
-```sh
-https://3wking.github.io/GO源码编译/编译GO源码_精简.cmd
 ```
