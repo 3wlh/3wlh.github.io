@@ -1,5 +1,5 @@
 # ***3wking***
-# ___3wking___
+
 ## supes.top ：
 ##### [编译插件](https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt//supes.top/luci-app)
 ##### [初始化脚本](https://raw.iqiq.io/3wking/3wking.github.io/main/openwrt//supes.top/shell)
@@ -30,6 +30,26 @@ https://3wking.github.io/openwrt/luci-theme-argon_2.2.9-20211016-1_all.ipk
 ```sh
 https://3wking.github.io/openwrt/luci-app-argon-config_0.9-20210309_all.ipk
 ```
+# TVBOX
+#### liu673cn
+```sh
+https://raw.iqiq.io/liu673cn/box/main/m.json
+```
+#### Yoursmile7
+```sh
+https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json
+```
+#### 每日推送
+```sh
+https://神器每日推送.tk/pz.json
+```
+
+# GO源码 ：
+#### 编译GO源码
+###### [Download](https://3wking.github.io/GO_Compile/GO_Compile.bat)
+#### 编译GO源码_精简
+###### [Download](https://3wking.github.io/GO_Compile/GO_Compile_Simplify.bat)
+
 
 # FRP
 ##### 安装frps服务端
