@@ -388,11 +388,11 @@ config redirect
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
-	option name 'NAS_455'
+	option name 'NAS_445'
 	option src 'wan'
 	option src_dport '4455'
 	option dest_ip '10.10.10.252'
-	option dest_port '455'
+	option dest_port '445'
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
