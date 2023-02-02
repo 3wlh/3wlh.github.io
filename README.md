@@ -6,8 +6,8 @@ https://raw.iqiq.io/3wking/3wking.github.io/main/Home.txt
 ```
 
 ## supes.top ：
-##### [编译插件](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/supes.top/luci-app)
-##### [初始化脚本](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/supes.top/shell)
+##### *[编译插件](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/supes.top/luci-app)
+##### *[初始化脚本](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/supes.top/shell)
 ## OpenWrt:
 ##### 修改配置
 ```sh
