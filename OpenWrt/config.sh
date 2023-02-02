@@ -353,11 +353,20 @@ config redirect
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
-	option name 'V2rray'
+	option name 'V2rray_Vless'
 	option src 'wan'
 	option src_dport '4333'
 	option dest_ip '10.10.10.254'
 	option dest_port '4333'
+	
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'V2rray_Vmess'
+	option src 'wan'
+	option src_dport '4443'
+	option dest_ip '10.10.10.254'
+	option dest_port '4443'	
 
 config redirect
 	option dest 'lan'
@@ -376,6 +385,7 @@ config redirect
 	option dest_ip '10.10.10.253'
 	option dest_port '80'
 	option name 'ASUS_WEB'
+	
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
@@ -393,6 +403,7 @@ config redirect
 	option src_dport '4455'
 	option dest_ip '10.10.10.252'
 	option dest_port '445'
+	
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
@@ -410,6 +421,7 @@ config redirect
 	option src_dport '5001'
 	option dest_ip '10.10.10.252'
 	option dest_port '5001'
+	
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
@@ -427,6 +439,7 @@ config redirect
 	option src_dport '8866'
 	option dest_ip '10.10.10.252'
 	option dest_port '8866'
+	
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
