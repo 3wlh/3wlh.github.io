@@ -62,11 +62,10 @@ cat >$V2ray<<EOF
 
 config global
 	option enable '1'
+
 config user '83d6d883d91c4242bd28d35e2ede7606'
 	option enable '1'
-	option remarks 'HOME'
 	option port '4333'
-	list uuid '8F7720C3-9378-1732-0656-6BD642DC0315'
 	option tls '0'
 	option transport 'tcp'
 	option tcp_guise 'none'
@@ -74,6 +73,34 @@ config user '83d6d883d91c4242bd28d35e2ede7606'
 	option protocol 'vless'
 	option decryption 'none'
 	option accept_lan '1'
+	list uuid '19970101-1997-0101-4333-1094890624ff'
+	option remarks 'Home_VLESS'
+
+config user '715c1ec1d0c34b7ab36274a0e2a6892f'
+	option enable '1'
+	option remarks 'Home_Trojan'
+	option protocol 'trojan'
+	option level '4'
+	option transport 'tcp'
+	option tcp_guise 'none'
+	option accept_lan '1'
+	option port '4334'
+	list uuid '19970101-1997-0101-4334-1094890624ff'
+
+config user 'f8339fd5bb09477d82e061c8b9b3a4e0'
+	option enable '1'
+	option remarks 'Home_Socks'
+	option protocol 'socks'
+	option auth '1'
+	option username '3wking'
+	option tls '0'
+	option transport 'tcp'
+	option tcp_guise 'none'
+	option accept_lan '1'
+	option port '4335'
+	option password 'qq1094890624'
+
+
 EOF
 }
 
@@ -355,9 +382,9 @@ config redirect
 	option target 'DNAT'
 	option name 'V2rray'
 	option src 'wan'
-	option src_dport '4333'
+	option src_dport '4333-4335'
 	option dest_ip '10.10.10.254'
-	option dest_port '4333'
+	option dest_port '4333-4335'
 
 config redirect
 	option dest 'lan'
@@ -376,6 +403,7 @@ config redirect
 	option dest_ip '10.10.10.253'
 	option dest_port '80'
 	option name 'ASUS_WEB'
+	
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
@@ -393,6 +421,7 @@ config redirect
 	option src_dport '4455'
 	option dest_ip '10.10.10.252'
 	option dest_port '445'
+	
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
@@ -410,6 +439,7 @@ config redirect
 	option src_dport '5001'
 	option dest_ip '10.10.10.252'
 	option dest_port '5001'
+	
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
@@ -427,6 +457,7 @@ config redirect
 	option src_dport '8866'
 	option dest_ip '10.10.10.252'
 	option dest_port '8866'
+	
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
