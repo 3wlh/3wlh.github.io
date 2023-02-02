@@ -55,6 +55,10 @@ EOF
 cat >$Clash<<EOF
 
 config openclash 'config'
+	option enable_rule_proxy '1'
+	option china_ip_route '1'
+	option custom_china_domain_dns_server '114.114.114.114'
+	option intranet_allowed '1'
 	list wan_ac_black_ips '10.10.10.150'
 	list wan_ac_black_ips '10.10.10.160'
 	list wan_ac_black_ips '10.10.10.252'
