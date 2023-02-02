@@ -6,9 +6,8 @@ https://raw.iqiq.io/3wking/3wking.github.io/main/Home.txt
 ```
 
 ## supes.top ：
-* [编译插件](https://openwrt.org/docs/techref/start)
-##### - [编译插件](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/supes.top/luci-app)
-##### *[初始化脚本](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/supes.top/shell)
+* [编译插件](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/supes.top/luci-app)
+* [初始化脚本](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/supes.top/shell)
 ## OpenWrt:
 ##### 修改配置
 ```sh
@@ -52,9 +51,9 @@ https://神器每日推送.tk/pz.json
 
 # GO源码 ：
 #### 编译GO源码
-###### [Download](https://3wking.github.io/GO_Compile/GO_Compile.bat)
+* [Download](https://3wking.github.io/GO_Compile/GO_Compile.bat)
 #### 编译GO源码_精简
-###### [Download](https://3wking.github.io/GO_Compile/GO_Compile_Simplify.bat)
+* [Download](https://3wking.github.io/GO_Compile/GO_Compile_Simplify.bat)
 
 
 # FRP ：
