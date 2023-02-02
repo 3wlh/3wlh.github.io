@@ -62,11 +62,10 @@ cat >$V2ray<<EOF
 
 config global
 	option enable '1'
+
 config user '83d6d883d91c4242bd28d35e2ede7606'
 	option enable '1'
-	option remarks 'HOME'
 	option port '4333'
-	list uuid '8F7720C3-9378-1732-0656-6BD642DC0315'
 	option tls '0'
 	option transport 'tcp'
 	option tcp_guise 'none'
@@ -74,6 +73,22 @@ config user '83d6d883d91c4242bd28d35e2ede7606'
 	option protocol 'vless'
 	option decryption 'none'
 	option accept_lan '1'
+	list uuid '19970101-1997-0101-4333-1094890624ff'
+	option remarks 'Home_VLESS'
+
+config user 'fc005cb2f66e4df2b47c9dbce208f2d6'
+	option enable '1'
+	option protocol 'vmess'
+	option port '4443'
+	list uuid '19970101-1997-0101-4443-1094890624ff'
+	option alter_id '16'
+	option level '4'
+	option tls '0'
+	option transport 'tcp'
+	option tcp_guise 'none'
+	option accept_lan '1'
+	option remarks 'Home_VMESS'
+
 EOF
 }
 
