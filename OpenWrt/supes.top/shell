@@ -137,133 +137,8 @@ config openclash 'config'
 	list wan_ac_black_ips '10.10.10.160'
 	list wan_ac_black_ips '10.10.10.252'
 	option enable_udp_proxy '0'
-	option config_path '/etc/openclash/config/868988.yaml'
-	option config_reload '1'
-
-config dns_servers
-	option group 'nameserver'
-	option type 'udp'
-	option ip '114.114.114.114'
-	option enabled '1'
-
-config dns_servers
-	option group 'nameserver'
-	option type 'udp'
-	option ip '119.29.29.29'
-	option enabled '1'
-
-config dns_servers
-	option group 'nameserver'
-	option type 'udp'
-	option ip '119.28.28.28'
-	option enabled '0'
-
-config dns_servers
-	option group 'nameserver'
-	option type 'udp'
-	option ip '223.5.5.5'
-	option enabled '0'
-
-config dns_servers
-	option type 'https'
-	option ip 'doh.pub/dns-query'
-	option group 'nameserver'
-	option enabled '1'
-
-config dns_servers
-	option type 'https'
-	option ip 'dns.alidns.com/dns-query'
-	option group 'nameserver'
-	option enabled '1'
-
-config dns_servers
-	option type 'https'
-	option group 'fallback'
-	option ip 'dns.cloudflare.com/dns-query'
-	option enabled '1'
-
-config dns_servers
-	option group 'fallback'
-	option ip 'dns.google'
-	option port '853'
-	option type 'tls'
-	option enabled '0'
-
-config dns_servers
-	option group 'fallback'
-	option type 'https'
-	option ip '1.1.1.1/dns-query'
-	option enabled '0'
-
-config dns_servers
-	option group 'fallback'
-	option ip '1.1.1.1'
-	option port '853'
-	option type 'tls'
-	option enabled '0'
-
-config dns_servers
-	option enabled '0'
-	option group 'fallback'
-	option ip '8.8.8.8'
-	option port '853'
-	option type 'tls'
-
-config dns_servers
-	option type 'udp'
-	option group 'fallback'
-	option ip '2001:4860:4860::8888'
-	option port '53'
-	option enabled '0'
-
-config dns_servers
-	option type 'udp'
-	option group 'fallback'
-	option ip '2001:4860:4860::8844'
-	option port '53'
-	option enabled '0'
-
-config dns_servers
-	option type 'udp'
-	option group 'fallback'
-	option ip '2001:da8::666'
-	option port '53'
-	option enabled '0'
-
-config dns_servers
-	option group 'fallback'
-	option type 'https'
-	option ip 'public.dns.iij.jp/dns-query'
-	option enabled '1'
-
-config dns_servers
-	option group 'fallback'
-	option type 'https'
-	option ip 'jp.tiar.app/dns-query'
-	option enabled '1'
-
-config dns_servers
-	option group 'fallback'
-	option type 'https'
-	option ip 'jp.tiarap.org/dns-query'
-	option enabled '1'
-
-config dns_servers
-	option group 'fallback'
-	option ip 'jp.tiar.app'
-	option type 'tls'
-	option enabled '0'
-
-config dns_servers
-	option group 'fallback'
-	option ip 'dot.tiar.app'
-	option type 'tls'
-	option enabled '1'
-
-config authentication
-	option enabled '1'
-	option username 'Clash'
-	option password 'M0gI64rw'
+	option config_path '/etc/openclash/config/木瓜云.yaml'
+	option config_reload '0'
 
 config config_subscribe
 	option enabled '1'
@@ -273,13 +148,6 @@ config config_subscribe
 	list keyword 'V3'
 	list keyword '香港'
 	list keyword '台湾'
-
-config config_subscribe
-	option enabled '1'
-	option name '868988'
-	option address 'https://888.868988.xyz/api/v1/client/subscribe?token=9864aa36b66e1148b9988e7f607e7a0c&name=%E9%85%B7%E6%88%91%E7%88%B1%E5%A5%BD%E8%80%85'
-	option sub_convert '0'
-	list keyword '0.1'
 
 EOF
 
