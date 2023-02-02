@@ -1,4 +1,7 @@
 # ***3wking***
+## Home ：
+```txt
+https://raw.iqiq.io/3wking/3wking.github.io/main/Home.txt
 
 ## supes.top ：
 ##### [编译插件](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/supes.top/luci-app)
