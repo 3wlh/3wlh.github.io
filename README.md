@@ -2,7 +2,7 @@
 
 ## Home ：
 ```txt
-https://3wking.github.io/Home.txt
+https://raw.iqiq.io/3wking/3wking.github.io/main/Home.txt
 ```
 
 ## supes.top ：
