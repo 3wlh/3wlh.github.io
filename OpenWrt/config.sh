@@ -143,26 +143,37 @@ if ! grep -q "config openclash 'config'" $Clash; then
 	sed -i "1a\config openclash 'config'" $Clash
 	fi
 if ! grep -q "10.10.10.252" $Clash; then
-	sed -i "/config openclash 'config'/a\list wan_ac_black_ips '10.10.10.252'" $Clash
+	sed -i "/config openclash 'config'/a\	list wan_ac_black_ips '10.10.10.252'" $Clash
 	fi
 if ! grep -q "10.10.10.160" $ClashS; then
-	sed -i "/config openclash 'config'/a\list wan_ac_black_ips '10.10.10.252'" $Clash
+	sed -i "/config openclash 'config'/a\	list wan_ac_black_ips '10.10.10.160'" $Clash
 	fi	
 if ! grep -q "10.10.10.150" $Clash; then
-	sed -i "/config openclash 'config'/a\list wan_ac_black_ips '10.10.10.252'" $Clash
+	sed -i "/config openclash 'config'/a\	list wan_ac_black_ips '10.10.10.150'" $Clash
+	fi	
+if ! grep -q "^.*option common_ports '[0-9]'" $Clash; then
+	sed -i "/config openclash 'config'/a\	option common_ports '1'" $Clash
+else
+	sed -i "s|^.*option common_ports '[0-9]'|	option common_ports '1'|g" $Clash
+	fi	
+if ! grep -q "^.*option enable_rule_proxy '[0-9]'" $Clash; then
+	sed -i "/config openclash 'config'/a\	option enable_rule_proxy '1'" $Clash
+else
+	sed -i "s|^.*option enable_rule_proxy '[0-9]|	option enable_rule_proxy '1'|g" $Clash
+	fi	
+if ! grep -q "^.*option intranet_allowed '[0-9]'" $Clash; then
+	sed -i "/config openclash 'config'/a\	option intranet_allowed '1'" $Clash
+else
+	sed -i "s|^.*option intranet_allowed '[0-9]'|	^.*option intranet_allowed '1'|g" $Clash
+	fi	
+if ! grep -q "^.*option china_ip_route '[0-9]'" $Clash; then
+	sed -i "/config openclash 'config'/a\	option china_ip_route '1'" $Clash
+else
+	sed -i "s|^.*option china_ip_route '[0-9]'|	option china_ip_route '1'|g" $Clash
 	fi
 	if ! grep -q "option custom_china_domain_dns_server" $Clash; then
-	sed -i "/config openclash 'config'/a\option custom_china_domain_dns_server '114.114.114.114'" $Clash
+	sed -i "/config openclash 'config'/a\	option custom_china_domain_dns_server ''" $Clash
 	fi
-if ! grep -q "option enable_rule_proxy '1'" $Clash; then
-	sed -i "/config openclash 'config'/a\option enable_rule_proxy '1'" $Clash
-	fi
-if ! grep -q "option china_ip_route '1'" $Clash; then
-	sed -i "/config openclash 'config'/a\option china_ip_route '1'" $Clash
-	fi
-if ! grep -q "option intranet_allowed '1'" $Clash; then
-	sed -i "/config openclash 'config'/a\option intranet_allowed '1'" $Clash
-	fi		
 cat >>$Clash<<EOF
 
 config config_subscribe
