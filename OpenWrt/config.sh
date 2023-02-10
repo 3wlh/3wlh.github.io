@@ -139,6 +139,9 @@ EOF
 
 
 init_Clash() {
+if ! grep -q "config openclash 'config'" $Clash; then
+	sed -i "1a\config openclash 'config'" $Clash
+	fi
 if ! grep -q "10.10.10.252" $Clash; then
 	sed -i "/config openclash 'config'/a\list wan_ac_black_ips '10.10.10.252'" $Clash
 	fi
