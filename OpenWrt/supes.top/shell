@@ -79,7 +79,7 @@ cat >>$Clash<<EOF
 config config_subscribe
 	option enabled '1'
 	option name '木瓜云'
-	option address 'https://v2.mugua-sub.com/link/DJ8FMih4AiYLEQXc?clash=1&dns=0'
+	option address ''
 	option sub_convert '0'
 	list keyword 'V3'
 	list keyword '香港'
