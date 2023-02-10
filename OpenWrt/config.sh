@@ -178,7 +178,7 @@ cat >>$Clash<<EOF
 
 config config_subscribe
 	option enabled '1'
-	option name '木瓜云'
+	option name 'Clash'
 	option address ''
 	option sub_convert '0'
 	list keyword 'V3'
