@@ -1,6 +1,5 @@
 #!/bin/bash
 #========变量========
-
 config="/etc/config"
 DDNS="/etc/config/ddns"
 ARGON="/etc/config/argon"
