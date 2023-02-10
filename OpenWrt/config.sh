@@ -342,16 +342,24 @@ EOF
 #========入口========
 
 (cd $config && {
-    [ -a ddns ] && init_DDNS && echo "DDNS......OK"
-    [ -a argon ] && init_ARGON && echo "ARGON......OK"
-    [ -a v2ray_server ] && init_V2ray && echo "V2ray......OK"
-    [ -a ipsec ] && init_IPSEC && echo "IPSEC......OK"
-    [ -a pptpd ] && init_PPTP && echo "PPTP......OK"
-    [ -a openclash ] && init_Clash && echo "openclash......OK"
-    [ -a network ] && init_Network && echo "Network......OK"
-    [ -a firewall ] && init_Firewall && echo "Firewall......OK"
-    echo
-    echo '================================='
-    echo '==========配置完成================'
+    [ -a ddns ] && init_DDNS && echo "DDNS......OK" &
+    sleep 1
+    [ -a argon ] && init_ARGON && echo "ARGON......OK" &
+    sleep 1
+    [ -a v2ray_server ] && init_V2ray && echo "V2ray......OK" &
+    sleep 1
+    [ -a ipsec ] && init_IPSEC && echo "IPSEC......OK" &
+    sleep 1
+    [ -a pptpd ] && init_PPTP && echo "PPTP......OK" &
+    sleep 1
+    [ -a openclash ] && init_Clash && echo "openclash......OK" &
+    sleep 1
+    [ -a network ] && init_Network && echo "Network......OK" &
+    sleep 1
+    [ -a firewall ] && init_Firewall && echo "Firewall......OK" &
+    sleep 1
+    echo  
+    echo '=================================' 
+    echo '==========配置完成================' 
     echo '================================='
 })
