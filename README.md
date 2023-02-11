@@ -9,6 +9,7 @@ https://raw.iqiq.io/3wking/3wking.github.io/main/Home.txt
 * [supes.top](https://supes.top/)
 * [编译插件](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/supes.top/luci-app)
 * [初始化脚本](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/supes.top/shell)
+
 ## OpenWrt:
 ##### 修改配置
 ```sh
@@ -18,6 +19,7 @@ wget https://3wking.github.io/OpenWrt/config.sh -O config.sh && chmod +x config.
 ```sh
 wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/config.sh | bash
 ```
+
 ## Friendlywrt ：
 ##### 精简修改friendlywrt
 ```sh
@@ -27,6 +29,7 @@ wget https://3wking.github.io/OpenWrt/friendlywrt/remove2.sh -O remove.sh && chm
 ```sh
 wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/friendlywrt/remove0.sh | bash
 ```
+
 ## 插件 ：
 ##### luci-theme-argon
 ```sh
@@ -37,7 +40,12 @@ https://3wking.github.io/OpenWrt/luci-theme-argon_2.2.9-20211016-1_all.ipk
 ```sh
 https://3wking.github.io/OpenWrt/luci-app-argon-config_0.9-20210309_all.ipk
 ```
+<<<<<<< HEAD
 * [Download](http://3wking.github.io/OpenWrt/luci-app/luci-app-argon-config_0.9-20210309_all.ipk)
+=======
+* [Download](https://3wking.github.io/OpenWrt/luci-app/luci-app-argon-config_0.9-20210309_all.ipk)
+
+>>>>>>> 26abe4d6dc4d397a827b2b702802ab8d94809c1e
 ## TVBOX ：
 ##### liu673cn
 ```sh
