@@ -32,11 +32,13 @@ wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/friendlywrt/r
 ```sh
 https://3wking.github.io/OpenWrt/luci-theme-argon_2.2.9-20211016-1_all.ipk
 ```
+* [Download](https://3wking.github.io/OpenWrt/luci-app/luci-theme-argon_2.2.9-20211016-1_all.ipk)
 ##### luci-app-argon-config
 ```sh
 https://3wking.github.io/OpenWrt/luci-app-argon-config_0.9-20210309_all.ipk
 ```
-# TVBOX ：
+* [Download](https://3wking.github.io/OpenWrt/luci-app/luci-app-argon-config_0.9-20210309_all.ipk)
+## TVBOX ：
 ##### liu673cn
 ```sh
 https://raw.iqiq.io/liu673cn/box/main/m.json
@@ -50,20 +52,20 @@ https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json
 https://神器每日推送.tk/pz.json
 ```
 
-# GO源码 ：
+## GO源码 ：
 #### 编译GO源码
 * [Download](https://3wking.github.io/GO_Compile/GO_Compile.bat)
 #### 编译GO源码_精简
 * [Download](https://3wking.github.io/GO_Compile/GO_Compile_Simplify.bat)
 
 
-# FRP ：
+## FRP ：
 ##### 安装frps服务端
 ```sh
 wget https://3wking.github.io/frp/frps.sh -O frps.sh && chmod +x frps.sh && ./frps.sh
 ```
 
-# proxypool ：
+## proxypool ：
 ##### source配置
 ```sh
 https://3wking.github.io/proxypool/source.conf
