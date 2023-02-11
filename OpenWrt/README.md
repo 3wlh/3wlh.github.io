@@ -27,7 +27,9 @@ wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/friendlywrt/r
 ```sh
 https://3wking.github.io/OpenWrt/luci-theme-argon_2.2.9-20211016-1_all.ipk
 ```
+* [Download](https://3wking.github.io/OpenWrt/luci-app/luci-theme-argon_2.2.9-20211016-1_all.ipk)
 ##### luci-app-argon-config
 ```sh
 https://3wking.github.io/OpenWrt/luci-app-argon-config_0.9-20210309_all.ipk
 ```
+* [Download](https://3wking.github.io/OpenWrt/luci-app/luci-app-argon-config_0.9-20210309_all.ipk)
