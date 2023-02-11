@@ -40,12 +40,8 @@ https://3wking.github.io/OpenWrt/luci-theme-argon_2.2.9-20211016-1_all.ipk
 ```sh
 https://3wking.github.io/OpenWrt/luci-app-argon-config_0.9-20210309_all.ipk
 ```
-<<<<<<< HEAD
 * [Download](http://3wking.github.io/OpenWrt/luci-app/luci-app-argon-config_0.9-20210309_all.ipk)
-=======
-* [Download](https://3wking.github.io/OpenWrt/luci-app/luci-app-argon-config_0.9-20210309_all.ipk)
 
->>>>>>> 26abe4d6dc4d397a827b2b702802ab8d94809c1e
 ## TVBOX ：
 ##### liu673cn
 ```sh
