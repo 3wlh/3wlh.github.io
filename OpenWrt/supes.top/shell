@@ -57,13 +57,13 @@ if ! grep -q "config openclash 'config'" $Clash; then
 	sed -i "1a\config openclash 'config'" $Clash
 	fi
 if ! grep -q "10.10.10.252" $Clash; then
-	sed -i "/config openclash 'config'/a\	list wan_ac_black_ips '10.10.10.252'" $Clash
+	sed -i "/config openclash 'config'/a\	list lan_ac_black_ips '10.10.10.252'" $Clash
 	fi
 if ! grep -q "10.10.10.160" $ClashS; then
-	sed -i "/config openclash 'config'/a\	list wan_ac_black_ips '10.10.10.160'" $Clash
+	sed -i "/config openclash 'config'/a\	list lan_ac_black_ips '10.10.10.160'" $Clash
 	fi	
 if ! grep -q "10.10.10.150" $Clash; then
-	sed -i "/config openclash 'config'/a\	list wan_ac_black_ips '10.10.10.150'" $Clash
+	sed -i "/config openclash 'config'/a\	list lan_ac_black_ips '10.10.10.150'" $Clash
 	fi	
 if ! grep -q "^.*option common_ports '[0-9]'" $Clash; then
 	sed -i "/config openclash 'config'/a\	option common_ports '1'" $Clash
