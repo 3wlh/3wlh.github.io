@@ -9,6 +9,7 @@ PPTP="/etc/config/pptpd"
 Clash="/etc/config/openclash"
 Network="/etc/config/network"
 Firewall="/etc/config/firewall"
+LED="/etc/config/system"
 
 #========函数========
 
