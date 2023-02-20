@@ -295,6 +295,7 @@ config interface 'MODE'
 EOF
 
 #========LED========
+echo ledtrig-netdev > /etc/modules.d/led-for-r6s && ln -s /etc/modules.d/led-for-r6s /etc/modules-boot.d/led-for-r6s && modprobe ledtrig-netdev
 cat >>$LED<<EOF
 
 config led
