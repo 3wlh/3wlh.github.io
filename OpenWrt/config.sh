@@ -339,6 +339,18 @@ config interface 'MODE'
 EOF
 }
 
+init_LED{
+cat >>$LED<<EOF
+
+config led
+	option sysfs 'sys_led'
+	option trigger 'none'
+	option name 'SYS_LED'
+	option default '0'
+EOF
+echo ledtrig-netdev > /etc/modules.d/led-for-r6s && ln -s /etc/modules.d/led-for-r6s /etc/modules-boot.d/led-for-r6s && modprobe ledtrig-netdev
+}
+
 #========入口========
 
 (cd $config && {
@@ -357,6 +369,8 @@ EOF
     [ -a network ] && init_Network && echo "Network......OK" &
     sleep 1
     [ -a firewall ] && init_Firewall && echo "Firewall......OK" &
+    sleep 1
+    [ -a firewall ] && init_LED && echo "LED......OK" &
     sleep 1
     echo  
     echo '=================================' 
