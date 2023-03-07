@@ -3,7 +3,8 @@
 ## supes.top ：
 * [编译插件](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt//supes.top/luci-app)
 * [ARM初始化脚本](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt//supes.top/arm_shell)
-* [X86初始化脚本](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt//supes.top/X86_shell)
+* [X86初始化脚本](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt//supes.top/x86_shell)
+
 ## Friendlywrt ：
 ##### 修改配置
 ```sh
