@@ -22,7 +22,7 @@ config service '3wking'
 	option use_ipv6 '0'
 	option enabled '1'
 	option lookup_host '3wking.com'
-	option domain '@.3wking.com'
+	option domain '3wking.com'
 	option username 'LTAITH5SfzDHXM9T'
 	option password 'ZdLWBCDBExC5gKnS4L4cCZpiT9Z7dm'
 	option ip_source 'network'
@@ -288,7 +288,7 @@ sed -i "/list ports 'eth0'/a\	list ports 'eth1'" $Network
 sed -i "/list ports 'eth1'/a\	list ports 'eth2'" $Network
 sed -i "/list ports 'eth2'/a\	list ports 'eth3'" $Network
 sed -i "/list ports 'eth3'/a\	list ports 'eth4'" $Network
-sed -i "s|^.*option device 'eth[0-9]'|	option device 'eth5'|g" $Clash$Network
+sed -i "s|^.*option device 'eth[0-9]'|	option device 'eth5'|g" $Network
 cat >>$Network<<EOF
 
 config interface 'MODE'
