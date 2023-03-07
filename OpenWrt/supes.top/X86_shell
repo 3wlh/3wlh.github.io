@@ -293,7 +293,7 @@ cat >>$Network<<EOF
 
 config interface 'MODE'
 	option proto 'static'
-	option device 'eth2'
+	option device 'eth5'
 	option ipaddr '192.168.1.1'
 	option gateway '192.168.1.10'
 	option defaultroute '0'
