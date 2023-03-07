@@ -69,12 +69,7 @@ if ! grep -q "^.*option enable_meta_core '[0-9]'" $Clash; then
 	sed -i "/config openclash 'config'/a\	option enable_meta_core '1'" $Clash
 else
 	sed -i "s|^.*option enable_meta_core '[0-9]'|	option enable_meta_core '1'|g" $Clash
-	fi		
-if ! grep -q "^.*option common_ports '[0-9]'" $Clash; then
-	sed -i "/config openclash 'config'/a\	option common_ports '1'" $Clash
-else
-	sed -i "s|^.*option common_ports '[0-9]'|	option common_ports '1'|g" $Clash
-	fi	
+	fi			
 if ! grep -q "^.*option enable_rule_proxy '[0-9]'" $Clash; then
 	sed -i "/config openclash 'config'/a\	option enable_rule_proxy '1'" $Clash
 else
