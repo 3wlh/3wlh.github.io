@@ -152,6 +152,17 @@ if ! grep -q "10.10.10.160" $ClashS; then
 if ! grep -q "10.10.10.150" $Clash; then
 	sed -i "/config openclash 'config'/a\	list lan_ac_black_ips '10.10.10.150'" $Clash
 	fi	
+if ! grep -q "^.*option auto_update '[0-9]'" $Clash; then
+	sed -i "/config openclash 'config'/a\	option auto_update '1'" $Clash
+	sed -i "/config openclash 'config'/a\	option config_auto_update_mode '0'" $Clash
+	sed -i "/config openclash 'config'/a\	option config_update_week_time '*'" $Clash
+	sed -i "/config openclash 'config'/a\	option auto_update_time '2'" $Clash	
+else
+	sed -i "s|^.*option auto_update '[0-9]'|	option auto_update '1'|g" $Clash
+	sed -i "/config openclash 'config'/a\	option config_auto_update_mode '0'" $Clash
+	sed -i "/config openclash 'config'/a\	option config_update_week_time '*'" $Clash
+	sed -i "/config openclash 'config'/a\	option auto_update_time '2'" $Clash
+	fi
 if ! grep -q "^.*option common_ports '[0-9]'" $Clash; then
 	sed -i "/config openclash 'config'/a\	option common_ports '1'" $Clash
 else
