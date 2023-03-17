@@ -143,6 +143,7 @@ init_Clash() {
 if ! grep -q "config openclash 'config'" $Clash; then
 	sed -i "1a\config openclash 'config'" $Clash
 	fi
+#不走代理
 if ! grep -q "10.10.10.252" $Clash; then
 	sed -i "/config openclash 'config'/a\	list lan_ac_black_ips '10.10.10.252'" $Clash
 	fi
@@ -151,7 +152,8 @@ if ! grep -q "10.10.10.160" $ClashS; then
 	fi	
 if ! grep -q "10.10.10.150" $Clash; then
 	sed -i "/config openclash 'config'/a\	list lan_ac_black_ips '10.10.10.150'" $Clash
-	fi	
+	fi
+#更新订阅
 if ! grep -q "^.*option auto_update '[0-9]'" $Clash; then
 	sed -i "/config openclash 'config'/a\	option auto_update '1'" $Clash
 	sed -i "/config openclash 'config'/a\	option config_auto_update_mode '0'" $Clash
@@ -162,12 +164,13 @@ else
 	sed -i "/config openclash 'config'/a\	option config_auto_update_mode '0'" $Clash
 	sed -i "/config openclash 'config'/a\	option config_update_week_time '*'" $Clash
 	sed -i "/config openclash 'config'/a\	option auto_update_time '2'" $Clash
-	fi
-if ! grep -q "^.*option common_ports '[0-9]'" $Clash; then
-	sed -i "/config openclash 'config'/a\	option common_ports '1'" $Clash
-else
-	sed -i "s|^.*option common_ports '[0-9]'|	option common_ports '1'|g" $Clash
 	fi	
+#使用meta内核
+if ! grep -q "^.*option enable_meta_core '[0-9]'" $Clash; then
+	sed -i "/config openclash 'config'/a\	option enable_meta_core '1'" $Clash
+else
+	sed -i "s|^.*option enable_meta_core '[0-9]'|	option enable_meta_core '1'|g" $Clash
+	fi		
 if ! grep -q "^.*option enable_rule_proxy '[0-9]'" $Clash; then
 	sed -i "/config openclash 'config'/a\	option enable_rule_proxy '1'" $Clash
 else
@@ -186,6 +189,7 @@ if ! grep -q "^.*option china_ip_route '[0-9]'" $Clash; then
 else
 	sed -i "s|^.*option china_ip_route '[0-9]'|	option china_ip_route '1'|g" $Clash
 	fi
+
 cat >>$Clash<<EOF
 
 config config_subscribe
