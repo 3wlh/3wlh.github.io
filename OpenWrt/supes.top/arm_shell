@@ -188,6 +188,15 @@ config redirect
 	option src_dport '1723'
 	option dest_ip '10.10.10.254'
 	option dest_port '1723'
+	
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'aDrive'
+	option src 'wan'
+	option src_dport '8181'
+	option dest_ip '10.10.10.254'
+	option dest_port '8181'
 
 config redirect
 	option dest 'lan'
@@ -241,52 +250,16 @@ config redirect
 	option src 'wan'
 	option src_dport '7000'
 	option dest_ip '10.10.10.252'
-	option dest_port '7000'
-
-config redirect
-	option dest 'lan'
-	option target 'DNAT'
-	option name 'NAS_8866'
-	option src 'wan'
-	option src_dport '8866'
-	option dest_ip '10.10.10.252'
-	option dest_port '8866'
+	option dest_port '7000'	
 	
 config redirect
 	option dest 'lan'
 	option target 'DNAT'
-	option name 'NAS_8181'
+	option name 'VS_Code'
 	option src 'wan'
-	option src_dport '8181'
+	option src_dport '8081'
 	option dest_ip '10.10.10.252'
-	option dest_port '8181'
-
-config redirect
-	option dest 'lan'
-	option target 'DNAT'
-	option name 'NAS_12580'
-	option src 'wan'
-	option src_dport '12580'
-	option dest_ip '10.10.10.252'
-	option dest_port '12580'
-	
-config redirect
-	option dest 'lan'
-	option target 'DNAT'
-	option name 'PVE'
-	option src 'wan'
-	option src_dport '8006'
-	option dest_ip '10.10.10.251'
-	option dest_port '8006'
-
-config redirect
-	option dest 'lan'
-	option target 'DNAT'
-	option name 'MQTT'
-	option src 'wan'
-	option src_dport '183'
-	option dest_ip '10.10.10.6'
-	option dest_port '80'
+	option dest_port '8081'
 
 config redirect
 	option dest 'lan'
