@@ -284,8 +284,7 @@ config host
 	option dns '1'
 	option mac '70:4A:0E:D6:E1:A0'
 	option ip '10.10.10.150'
-	option leasetime 'infinite'
-	
+	option leasetime 'infinite'	
 EOF
 
 
