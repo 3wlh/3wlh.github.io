@@ -290,7 +290,6 @@ EOF
 
 
 #========Network========
-
 cat >>$Network<<EOF
 
 config interface 'MODE'
