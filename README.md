@@ -4,7 +4,9 @@
 ```txt
 https://raw.iqiq.io/3wking/3wking.github.io/main/Home.txt
 ```
-
+```txt
+https://raw.iqiq.io/3wking/3wking.github.io/main/Home_ipad.txt
+```
 ## supes.top ：
 * [supes.top](https://supes.top/)
 * [编译插件](https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt//supes.top/luci-app)
