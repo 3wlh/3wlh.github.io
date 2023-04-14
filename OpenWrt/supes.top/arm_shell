@@ -164,9 +164,7 @@ config user 'f70129045dee489793b400ddd7af5687'
 EOF
 
 #========Firewall========
-if ! grep -q "^.*list network 'MODE'" $Firewall; then
-	sed -i "^.*list network 'wan'/a\	list network 'MODE'" $Firewall
-fi
+sed -i "/list network 'wan'/a\	list network 'MODE'" $Firewall
 cat >>$Firewall<<EOF
 
 config redirect
@@ -293,6 +291,7 @@ EOF
 
 
 #========Network========
+
 cat >>$Network<<EOF
 
 config interface 'MODE'
