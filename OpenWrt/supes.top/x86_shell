@@ -161,6 +161,7 @@ config user 'f70129045dee489793b400ddd7af5687'
 EOF
 
 #========Firewall========
+sed -i "/list network 'wan'/a\	list network 'MODE'" $Firewall
 cat >>$Firewall<<EOF
 
 config redirect
