@@ -5,6 +5,7 @@ DDNS="/etc/config/ddns"
 ARGON="/etc/config/argon"
 V2ray="/etc/config/v2ray_server"
 Clash="/etc/config/openclash"
+DHCP="/etc/config/dhcp"
 Firewall="/etc/config/firewall"
 Network="/etc/config/network"
 
@@ -271,6 +272,16 @@ config redirect
 	option src_dport '882'
 	option dest_ip '10.10.10.252'
 	option dest_port '882'
+EOF
+
+cat >>$DHCP<<EOF
+
+config host
+	option name 'DBBOX5C'
+	option dns '1'
+	option mac '70:4A:0E:D6:E1:A0'
+	option ip '10.10.10.150'
+	option leasetime 'infinite'	
 EOF
 
 #========Network========
