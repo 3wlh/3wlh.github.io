@@ -1,17 +1,17 @@
 #!/bin/sh
-PATH="/etc/openclash/core/"
+dir="/etc/openclash/core/"
 DEV="https://raw.iqiq.io/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz"
 META="https://raw.iqiq.io/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz"
 echo "内核安装中......"
-	if [ ! -d ${PATH} ]; then
-		mkdir ${PATH} && chmod 0755 ${PATH}
+	if [ ! -d ${dir} ]; then
+		mkdir ${dir} && chmod 0755 ${dir}
 	fi
 	
 echo "下载 dev 内核......"
-/usr/bin/wget "${DEV}" -O /tmp/dev.tar.gz
+wget "${DEV}" -O /tmp/dev.tar.gz
 echo "安装 dev 内核......" 
-tar -zxf /tmp/dev*.gz -O > ${PATH}/clash && chmod 0755 ${PATH}/clash && rm -f /tmp/dev*.gz && echo "dev 内核安装完成"
+tar -zxf /tmp/dev*.gz -O > ${dir}/clash && chmod 0755 ${dir}/clash && rm -f /tmp/dev*.gz && echo "dev 内核安装完成"
 echo "下载 meta 内核......"
-/usr/bin/wget "${METE}" -O /tmp/meta.tar.gz
+wget "${META}" -O /tmp/meta.tar.gz
 echo "安装 meta 内核......" 
-tar -zxf /tmp/meta*.gz  -O > ${PATH}/clash_meta && chmod 0755 ${PATH}/clash_meta && rm -f /tmp/meta*.gz && echo "meta 内核安装完成"
+tar -zxf /tmp/meta*.gz  -O > ${dir}/clash_meta && chmod 0755 ${dir}/clash_meta && rm -f /tmp/meta*.gz && echo "meta 内核安装完成"
