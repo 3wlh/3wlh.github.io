@@ -25,6 +25,10 @@ wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/friendlywrt/r
 ```
 
 ## 插件 ：
+##### Openclash_内核安装
+```sh
+wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/openclash.sh | bash
+```
 ##### luci-theme-argon
 ```sh
 https://3wking.github.io/OpenWrt/luci-theme-argon_2.2.9-20211016-1_all.ipk
