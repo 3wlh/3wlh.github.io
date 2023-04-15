@@ -34,16 +34,14 @@ wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/friendlywrt/r
 ```
 
 ## 插件 ：
-##### luci-theme-argon
+##### Openclash_内核安装
 ```sh
-https://3wking.github.io/OpenWrt/luci-theme-argon_2.2.9-20211016-1_all.ipk
+wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/openclash.sh | bash
 ```
-* [Download](https://3wking.github.io/OpenWrt/luci-app/luci-theme-argon_2.2.9-20211016-1_all.ipk)
-##### luci-app-argon-config
+##### argon_安装
 ```sh
-https://3wking.github.io/OpenWrt/luci-app-argon-config_0.9-20210309_all.ipk
+wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/luci-theme/argon/argon.sh | bash
 ```
-* [Download](https://3wking.github.io/OpenWrt/luci-app/luci-app-argon-config_0.9-20210309_all.ipk)
 
 ## TVBOX ：
 ##### liu673cn
