@@ -7,4 +7,6 @@ wget -q --show-progress -P /tmp "${argon}" && opkg install luci-theme-argon*.ipk
 echo "下载 argon_config ......" 
 wget -q --show-progress -P /tmp "${argon_config}" && opkg install luci-app-argon-config*.ipk && rm -f /tmp/luci-app-argon-config*.ipk && echo "安装 argon_config 完成"
 }
-(cd && {echo "安装 argon 主题" && install && echo "安装 argon 完成"})
+(cd && {
+	echo "安装 argon 主题" && install && echo "安装 argon 完成"
+})
