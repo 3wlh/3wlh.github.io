@@ -15,5 +15,3 @@ wget -q --show-progress "${META}" -O /tmp/meta.tar.gz && tar -zxf /tmp/meta*.gz 
 (cd && {
 	echo "安装Openclash内核......" && install && echo "安装Openclash内核完成"
 })
-
-
