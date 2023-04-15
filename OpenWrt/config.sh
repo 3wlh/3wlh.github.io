@@ -329,7 +329,7 @@ config interface 'MODE'
 EOF
 }
 
-init_LED{
+init_LED() {
 cat >>$LED<<EOF
 
 config led
