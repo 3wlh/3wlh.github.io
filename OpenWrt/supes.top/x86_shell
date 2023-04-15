@@ -274,6 +274,7 @@ config redirect
 	option dest_port '882'
 EOF
 
+#========DHCP========
 cat >>$DHCP<<EOF
 
 config host
