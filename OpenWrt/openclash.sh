@@ -12,4 +12,6 @@ echo "下载 dev 内核......"
 echo "下载 meta 内核......"
 wget -q --show-progress "${META}" -O /tmp/meta.tar.gz && tar -zxf /tmp/meta*.gz  -O > ${dir}/clash_meta && chmod 0755 ${dir}/clash_meta && rm -f /tmp/meta*.gz && echo "meta 内核安装完成"
 }
-(cd && {echo "安装Openclash内核......" && install && echo "安装Openclash内核完成"})
+(cd && {
+	echo "安装Openclash内核......" && install && echo "安装Openclash内核完成"
+})
