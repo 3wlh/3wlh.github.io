@@ -5,7 +5,7 @@
 https://raw.iqiq.io/3wking/3wking.github.io/main/Home.txt
 ```
 ```txt
-https://raw.iqiq.io/3wking/3wking.github.io/main/Home_ipad.txt
+https://raw.iqiq.io/3wking/3wking.github.io/main/Home.conf
 ```
 ## supes.top ：
 * [supes.top](https://supes.top/)
