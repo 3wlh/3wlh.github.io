@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PATH="/etc/openclash/core/"
 DEV="https://raw.iqiq.io/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz"
 META="https://raw.iqiq.io/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz"
