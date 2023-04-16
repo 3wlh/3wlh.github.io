@@ -33,3 +33,7 @@ wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/Shell/opencla
 ```sh
 wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/Shell/argon.sh | bash
 ```
+##### argon_img
+```sh
+wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/Shell/argon_img.sh | bash
+```
