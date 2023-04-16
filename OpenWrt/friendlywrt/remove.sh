@@ -35,7 +35,7 @@ echo 'remove luci-theme-material（1/2）'
 opkg remove luci-theme-material 
 echo 'remove luci-theme-openwrt-2020（2/2）' 
 opkg remove luci-theme-openwrt-2020 
-#卸载插件
+#卸载插件+依赖
 echo 'remove luci-app-ntpc（1/12）'
 opkg remove luci-app-ntpc --force-removal-of-dependent-packages --autoremove
 echo 'remove luci-app-nft-qos（2/12）'
