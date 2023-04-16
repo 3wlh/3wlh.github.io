@@ -36,11 +36,11 @@ wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/friendlywrt/r
 ## 插件 ：
 ##### Openclash_内核安装
 ```sh
-wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/openclash.sh | bash
+wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/Shell/openclash.sh | bash
 ```
 ##### argon_安装
 ```sh
-wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/luci-theme/argon/argon.sh | bash
+wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/Shell/argon.sh | bash
 ```
 
 ## TVBOX ：
