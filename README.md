@@ -25,25 +25,25 @@ wget -O - https://raw.iqiq.io/3wking/OpenWrt/main/Compile/env.sh | bash
 ## Friendlywrt ：
 ##### 精简修改friendlywrt
 ```sh
-wget -O - https://raw.iqiq.io/3wking/OpenWrt/main/friendlywrt/remove.sh | bash
+curl -k https://raw.iqiq.io/3wking/OpenWrt/main/friendlywrt/remove.sh | bash
 ```
 ##### 修改配置
 ```sh
-wget -O - https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/config.sh | bash
+curl -k https://raw.iqiq.io/3wking/3wking.github.io/main/OpenWrt/config.sh | bash
 ```
 
 ## 插件 ：
 ##### Openclash_内核安装
 ```sh
-wget -O - https://raw.iqiq.io/3wking/OpenWrt/main/Shell/openclash.sh | bash
+curl -k https://raw.iqiq.io/3wking/OpenWrt/main/Shell/openclash.sh | bash
 ```
 ##### argon_安装
 ```sh
-wget -O - https://raw.iqiq.io/3wking/OpenWrt/main/Shell/argon.sh | bash
+curl -k https://raw.iqiq.io/3wking/OpenWrt/main/Shell/argon.sh | bash
 ```
 ##### argon_img
 ```sh
-wget -O - https://raw.iqiq.io/3wking/OpenWrt/main/Shell/argon_img.sh | bash
+curl -k https://raw.iqiq.io/3wking/OpenWrt/main/Shell/argon_img.sh | bash
 ```
 
 ## TVBOX ：
