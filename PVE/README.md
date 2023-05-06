@@ -40,7 +40,7 @@ echo "OK"
 ```
 ##### pve软件源(/etc/apt/sources.list.d/pve-enterprise.list)：
 ```sh
-cp /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/sources.list.d/pve-enterprise.list_back
+cp /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/pve-enterprise.list_back
 echo "deb https://mirrors.tuna.tsinghua.edu.cn/proxmox/debian bullseye pve-no-subscription" > /etc/apt/sources.list.d/pve-enterprise.list
 ```
 ##### 更新：
