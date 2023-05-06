@@ -56,7 +56,7 @@ sed -i 's|http://download.proxmox.com|https://mirrors.tuna.tsinghua.edu.cn/proxm
 cp /usr/share/perl5/PVE/APLInfo.pm /usr/share/perl5/PVE/APLInfo.pm_back
 sed -i 's|http://download.proxmox.com|https://mirrors.tuna.tsinghua.edu.cn/proxmox|g' /usr/share/perl5/PVE/APLInfo.pm
 ```
-##### LXC仓库为国内源:
+##### LXC仓库为国内源：
 ```sh
 grep -rn "download.proxmox.com" /usr/share/perl5/PVE/*
 sed -i.bak "s#http://download.proxmox.com/images#https://mirrors.ustc.edu.cn/proxmox/images#g" /usr/share/perl5/PVE/APLInfo.pm
@@ -75,6 +75,7 @@ systemctl restart pvedaemon.service
 
 
 ## 直通修改：
+##### shell命令：
 ```
 shell里面输入命令：
 
@@ -82,9 +83,9 @@ nano /etc/default/grub
 
 找到GRUB_CMDLINE_LINUX_DEFAULT="quiet"，修改为
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on pcie_acs_override=downstream"
-
-
-Intel CPU
+```
+##### Intel：
+```
 shell里面输入命令：
 
 nano /etc/default/grub
@@ -102,7 +103,9 @@ dmesg | grep -e DMAR -e IOMMU
 重启一下
 
 reboot
-AMD CPU
+```
+##### AMD：
+```
 shell里面输入命令：
 
 nano /etc/default/grub
