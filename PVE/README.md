@@ -36,7 +36,7 @@ echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main c
 echo "# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free" >> /etc/apt/sources.list
 echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free" >> /etc/apt/sources.list
 echo "# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free" >> /etc/apt/sources.list
-echo ""
+echo "OK"
 ```
 ##### pve软件源(/etc/apt/sources.list.d/pve-enterprise.list)：
 ```sh
@@ -75,8 +75,8 @@ systemctl restart pvedaemon.service
 
 
 ## 直通修改：
-##### shell命令：
-```
+##### pcie直通：
+```txt
 shell里面输入命令：
 
 nano /etc/default/grub
@@ -85,7 +85,7 @@ nano /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on pcie_acs_override=downstream"
 ```
 ##### Intel：
-```
+```txt
 shell里面输入命令：
 
 nano /etc/default/grub
@@ -105,7 +105,7 @@ dmesg | grep -e DMAR -e IOMMU
 reboot
 ```
 ##### AMD：
-```
+```txt
 shell里面输入命令：
 
 nano /etc/default/grub
