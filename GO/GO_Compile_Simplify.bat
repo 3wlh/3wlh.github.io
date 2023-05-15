@@ -1,23 +1,23 @@
-@ echo off & TITLE 3wking & CHCP 65001
+@ echo off & TITLE GO_Compile & CHCP 65001
 color 0d
 Cls
 @ echo. ======================================
-@ echo.  SET CGO_ENABLED=0
+@ echo.		设置变量
+rem CGO状态 默认：0=关闭, 1=开启
 SET CGO_ENABLED=0
 echo. ======================================
 rem 编译系统选择 GOOS=linux 默认linux ,Windows=windows,MAC=darwin
-@ echo.  SET GOOS=linux
 SET GOOS=linux
+@ echo.	系统	= 	%GOOS%
 @ echo. ======================================
-rem 编译版本选择 GOARCH=amd64 默认64位 , 32位= 368, ARM 32位=arm  GOARM=5,6,7
-@ echo.  SET GOARCH=amd64
-SET GOARCH=amd64
-::SET GOARM=5
+rem 编译版本选择 GOARCH=amd64 默认64位=amd64 32位=386 , ARM 64位=arm64 32位=arm
+SET GOARCH=arm
+@ echo.	架构	=	%GOARCH%
+rem 如果编译ARM 32位 选择架构 ，GOARM= 5 , 6 , 7
+if "%GOARCH%" == "arm" (SET GOARM=7)
 @ echo. ======================================
-@ echo.  go build
+@ echo. go build
 go build -ldflags "-s -w" -gcflags "-N -l"  -o main
-@ echo.
-@ echo.
 @ echo.
 @ echo.
 @ echo.按任意键退出...
