@@ -20,6 +20,8 @@ rem 压缩在命令后面添加：&& upx -9 main
 go build -ldflags "-s -w" -gcflags "-N -l"  -o main
 @ echo.
 @ echo.
-@ echo.按任意键退出...
-pause >nul
+@ echo.30秒后自动退出...
+ping 127.1 -n 31 >nul
+::@ echo.按任意键退出...
+::pause >nul
 exit
