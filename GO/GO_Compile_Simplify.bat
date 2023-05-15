@@ -9,12 +9,13 @@ rem 编译系统选择 GOOS=linux 默认linux ,Windows=windows,MAC=darwin
 @ echo.  SET GOOS=linux
 SET GOOS=linux
 @ echo. ======================================
-rem 编译版本选择 GOARCH=amd64 默认64位 , 32位= 368
+rem 编译版本选择 GOARCH=amd64 默认64位 , 32位= 368, ARM 32位=arm  GOARM=5,6,7
 @ echo.  SET GOARCH=amd64
 SET GOARCH=amd64
+::SET GOARM=5
 @ echo. ======================================
 @ echo.  go build
-go build -ldflags="-w -s"
+go build -ldflags "-s -w" -gcflags "-N -l"  -o main
 @ echo.
 @ echo.
 @ echo.
