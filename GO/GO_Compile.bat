@@ -17,7 +17,11 @@ if "%GOARCH%" == "arm" (SET GOARM=7)
 @ echo. ======================================
 rem 压缩在命令后面添加：&& upx -9 main
 @ echo. go build
-go build -ldflags "-s -w" -gcflags "-N -l"  -o main
+if "%GOOS%" == "windows" (
+go build -ldflags "-s -w" -gcflags "-N -l"  -o main.exe && upx -9 main.exe
+)else (
+go build -ldflags "-s -w" -gcflags "-N -l"  -o main && upx -9 main
+)
 @ echo.
 @ echo.
 @ echo.30秒后自动退出...
