@@ -16,17 +16,8 @@ raw.githubusercontent.com
 替换为
 hk1.monika.love
 ```
-
-
 ###### jsdelivr
 * [网址](https://jsdelivr.com/)
-```
-# RAW 加速服务
-将原网址
-raw.githubusercontent.com
-替换为
-cdn.jsdelivr.net/gh
-```
 ###### gitmirror
 * [网址](https://gitmirror.com/)
 ```
