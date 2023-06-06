@@ -2,15 +2,15 @@
 Cls
 @ echo. ======================================
 if not exist go.mod (
-		echo.	初始化《go.mod》
+		echo.	初始化 ^<go.mod^>
 		go mod init main
     ) else (
-        echo.	更新《go.mod》
+        echo.	更新 ^<go.mod^>
         go mod tidy
 )
 echo. ======================================
 if not exist main.go (
-		echo.	创建《main.go》
+		echo.	创建 ^<main.go^>
 		echo package main> main.go
 		echo.>> main.go
 		echo import ^(>> main.go
