@@ -1,11 +1,11 @@
 # ***3wking***
 
 ## Home ：
-```txt
-https://raw.iqiq.io/3wking/3wking.github.io/main/Home.txt
+```txt 
+https://cdn.jsdelivr.net/gh/3wking/3wking.github.io@main/Home.txt
 ```
 ```txt
-https://raw.iqiq.io/3wking/3wking.github.io/main/Home.conf
+https://cdn.jsdelivr.net/gh/3wking/3wking.github.io@main/Home.conf
 ```
 
 ## TVBOX ：
@@ -26,7 +26,6 @@ https://神器每日推送.tk/pz.json
 * [Download](https://3wking.github.io/GO/GO_Compile.bat)
 #### 初始化GO源码
 * [Download](https://3wking.github.io/GO/GO_init.bat.bat)
-
 
 ## FRP ：
 ##### 安装frps服务端
