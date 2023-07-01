@@ -1,0 +1,15 @@
+[DDNS]
+url=
+AccessKeyID=XXXXXXXX
+AccessKey=XXXXXXXXXXXXXX
+#如: example.com
+DomainName=<主域名>
+#如: www ,@
+RR=<子域名>
+
+[Wake-on-LAN]
+#局域网广播地址
+IP=10.10.10.255
+#唤醒MAC地址
+电脑=XX:XX:XX:XX:XX:XX
+NAS=XX:XX:XX:XX:XX:XX
