@@ -1,5 +1,5 @@
 [DDNS]
-url=
+url=https://raw.fastgit.ixmu.net/3wking/3wking.github.io/main/122.txt
 AccessKeyID=XXXXXXXX
 AccessKey=XXXXXXXXXXXXXX
 #如: example.com
