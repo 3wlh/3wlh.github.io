@@ -2,10 +2,10 @@
 
 ## Home ：
 ```txt 
-https://cdn.jsdelivr.net/gh/3wking/3wking.github.io@main/Home.txt
+https://ghproxy.net/https://raw.githubusercontent.com/3wking/3wking.github.io/main/Home.txt
 ```
 ```txt
-https://cdn.jsdelivr.net/gh/3wking/3wking.github.io@main/Home.conf
+https://ghproxy.net/https://raw.githubusercontent.com/3wking/3wking.github.io/main/Home.conf
 ```
 
 ## TVBOX ：
