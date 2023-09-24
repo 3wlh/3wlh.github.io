@@ -18,12 +18,16 @@ body, ul, li, h1, h2, h3, h4, h5, h6, p, form, dl, dt, dd {
     font-weight: normal;
 }
 img {
-    border-style: none;
+	border-style: none;
+	display: block;
+	margin: 0 auto;
+	//width: 50%;
 }
 li {
     list-style: none;
 }
 a {
+	font-size: 16px;
     text-decoration: none
 }
 
@@ -33,19 +37,21 @@ h1 {
 }
 
 html, body {
-    background: #fff;
+    //background: #fff;
 	//height: 100%px;
-	font-size: 100%;
+	//font-size: 100%;
 	/*
-	background-image: url("web_data/img/img_16.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	*/
+	background-image: url("../img/img.jpg");
 	background: -webkit-linear-gradient(315deg, #00C4FF, #9D1BB2) no-repeat fixed;
 	background: linear-gradient(135deg, #00C4FF, #9D1BB2) no-repeat fixed;
+	*/
+	background: linear-gradient(to top right, rgb(238, 163, 175), rgb(149, 214, 240));
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	background-position: center;
 	background-size: cover;
 	font-family: 'Helvetica Neue','Microsoft Yahei',SimHei,sans-serif
+	
 }
 
 input[type="button"], input[type="submit"], input[type="reset"] {
@@ -61,7 +67,7 @@ textarea {
 
 
 .inner-center {
-    width: 66%;
+    width: 50%;
     //height: 100%;
     margin: 0 auto;
  
@@ -179,24 +185,14 @@ textarea {
     cursor: pointer;
 }
 .search-logo.baidu, li.baidu {
-    background-image: url("./img/scbaidu.png");
+    background-image: url("./img/baidu.png");
 }
 .search-logo.bing, li.bing {
-    background-image: url("./img/scbing.png");
-}
-.search-logo.sogou, li.sogou {
-    background-image: url("./img/scsogou.png");
-}
-.search-logo.wangpan, li.wangpan {
-    background-image: url("./img/scwangpan.png");
-}
-.search-logo.so, li.so {
-    background-image: url("./img/scso.png");
+    background-image: url("./img/bing.png");
 }
 .search-logo.google, li.google {
-    background-image: url("./img/scgoogle.png");
+    background-image: url("./img/google.png");
 }
-
 .search-methods .search-item:hover {
     background-color: #f0f0f0;
 }
