@@ -8,6 +8,12 @@ https://ghproxy.net/https://raw.githubusercontent.com/3wking/3wking.github.io/ma
 https://ghproxy.net/https://raw.githubusercontent.com/3wking/3wking.github.io/main/Home.conf
 ```
 
+
+## 阅读
+###### 一程书源
+```
+https://www.gitlink.org.cn/api/yi-c/yd/raw/sy.json?ref=master
+```
 ## TVBOX ：
 ##### liu673cn
 ```sh
