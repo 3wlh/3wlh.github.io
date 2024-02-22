@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark"
+  data-a11y-animated-images="system">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="dns-prefetch" href="https://github.githubassets.com" />
+  <link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com" />
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/" />
+  <link rel="preconnect" href="https://github.githubassets.com" crossorigin />
+  <link rel="preconnect" href="https://avatars.githubusercontent.com" />
+
+  <link crossorigin="anonymous" media="all" rel="stylesheet"
+    href="https://github.githubassets.com/assets/light-92c7d381038e.css" />
+  <link crossorigin="anonymous" media="all" rel="stylesheet"
+    href="https://github.githubassets.com/assets/dark-d4a90c367f0c.css" />
+
+  <link crossorigin="anonymous" media="all" rel="stylesheet"
+    href="https://github.githubassets.com/assets/primer-665d09058d18.css" />
+  <link crossorigin="anonymous" media="all" rel="stylesheet"
+    href="https://github.githubassets.com/assets/global-ef47aa3710b2.css" />
+  <style>
+    select,
+    input {
+      width: 400px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js"></script>
+  <!-- <script src="https://fastly.jsdelivr.net/npm/marked/marked.min.js"></script> -->
+  <script type="application/javascript">
+
+    var repo = "3wking/Redpill_CustomBuild";
+    var rlRepo = "3wking/redpill-load"
+    var rpRepo = "3wking/rp-ext"
+
+    var dev = "0";
+
+    var _parameters = {};
+    var _configs = {};
+    var _addons = {};
+    var _modules = {};
+
+    repo = getRepo(repo);
+    dev = getUrlParam("dev");
+
+    function getRepo(repo) {
+      var url = document.location.toString();
+      var arr = url.split("?")[0].split("/");
+      if (arr.length > 1) {
+        for (var i = 0; i < arr.length; i++) {
+          if (
+            arr[i].indexOf(".github.io") >= 0 &&
+            i + 1 < arr.length &&
+            arr[i + 1].length > 0
+          ) {
+            return arr[i].replace(".github.io", "") + "/" + arr[i + 1];
+          }
+        }
+      }
+      return repo;
+    }
+
+    function getUrlParam(paraName) {
+      var url = document.location.toString();
+      var arrObj = url.split("?");
+      if (arrObj.length > 1) {
+        var arrPara = arrObj[1].split("&");
+        var arr;
+        for (var i = 0; i < arrPara.length; i++) {
+          arr = arrPara[i].split("=");
+          if (arr != null && arr[0] == paraName) {
+            return arr[1];
+          }
+        }
+      }
+      return "";
+    }
+
+    function httpGetAsync(theUrl, callback) {
+      let xmlHttpReq = new XMLHttpRequest();
+      xmlHttpReq.onreadystatechange = function () {
+        if (xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200)
+          callback(xmlHttpReq.responseText);
+      };
+      xmlHttpReq.open("GET", theUrl, true); // true for asynchronous
+      xmlHttpReq.send(null);
+    }
+
+    var html = "";
+    window.onload = function () {
+      //confirm("!!!");
+      setLogo(dev);
+      setTitle();
+      setTips();
+      $("#titleLabel").on("click", changemode);
+      html += createInput({
+        "name": "selectproxy",
+        "description": "如果下面显示异常请尝试切换代理设置.",
+        "detailedinfo": "如果下面显示异常请尝试切换代理设置.",
+        "required": true,
+        "default": "raw.githubusercontent.com",
+        "type": "choice",
+        "options": [
+          "raw.githubusercontent.com",
+          "ghproxy.com",
+          "fastly.jsdelivr.net",
+          "gcore.jsdelivr.net",
+          "cdn.statically.io",
+          "cdn.staticaly.com"
+        ]
+      });
+      $("#inputs").find("div").remove(); //html('');
+      $("#inputs").prepend(html);
+      $("#selectproxy").on("change", changeProxy);
+      changeProxy();
+    };
+
+    function init() {
+      httpGetAsync(proxyUrl(repo) + "main/docs/parameter.json" + "?" + Math.random(), function (result) {
+        _parameters = JSON.parse(result);
+        httpGetAsync(proxyUrl(rlRepo) + "main/config/configs.json" + "?" + Math.random(), function (result) {
+          _configs = JSON.parse(result);
+          httpGetAsync(proxyUrl(rpRepo) + "main/addons.json" + "?" + Math.random(), function (result) {
+            _addons = JSON.parse(result);
+            httpGetAsync(proxyUrl(rpRepo) + "main/modules.json" + "?" + Math.random(), function (result) {
+              _modules = JSON.parse(result);
+              $("#inputs").find("div").remove(); //html('');
+              var parameters = "";
+              for (var key in _parameters) {
+                //console.log(key, result[key]);
+                parameters += createInput(_parameters[key]);
+              }
+              $("#inputs").prepend(html + parameters);
+              $("#selectproxy").on("change", changeProxy);
+              $("#model").on("change", changeModel);
+              $("#version").on("change", changeVersion);
+              getModels();
+            });
+          });
+        });
+      });
+    }
+
+    function setLogo(dev) {
+      if (dev == "1") {
+        $("#titleLabel").text("Develop");
+        $($("#logoP"))[0].style.display = "none";
+        $($("#logoD"))[0].style.display = "block";
+      } else {
+        $("#titleLabel").text("Master");
+        $($("#logoP"))[0].style.display = "block";
+        $($("#logoD"))[0].style.display = "none";
+      }
+    }
+
+    function setTitle() {
+      document.title = repo;
+      $("#titleA")[0].href = `https://github.com/${repo}`;
+      $("#titleA")[0].innerText = repo.substring(repo.indexOf("/") + 1);
+    }
+
+    function setTips() {
+      httpGetAsync(proxyUrl(repo) + "main/docs/tips.md" + "?" + Math.random(), function (result) {
+        var html = result.replace(/\n/g, "<br />");
+        $("#content").html(html);
+      });
+    }
+
+    function changemode() {
+      dev = dev == "1" ? "0" : "1";
+      setLogo(dev);
+      createExtBtn();
+    }
+
+    function createInput(data) {
+      var html = "";
+
+      var name = "";
+      var desc = "";
+      var type = "";
+      var dft = "";
+      var req = "";
+      var info = "";
+      var durl = "";
+      if (data.hasOwnProperty("name")) name = data.name;
+      if (data.hasOwnProperty("description")) desc = data.description;
+      if (data.hasOwnProperty("type")) type = data.type;
+      if (data.hasOwnProperty("default")) dft = data.default;
+      if (data.hasOwnProperty("required")) req = data.required;
+      if (data.hasOwnProperty("detailedinfo")) info = data.detailedinfo;
+      if (data.hasOwnProperty("detailedurl")) durl = data.detailedurl;
+      if (type == "none") {
+
+      } else {
+        var par = "";
+        if (req) par = "required";
+
+        html += `<div class="form-group mt-1 mb-2 ${par}">`;
+        html += `  <div class="form-group-header"><label class="color-fg-default text-mono f6" for="${name}">${name}</label></div>`;
+        html += `  <div class="form-group-body">`;
+
+        if (type == "choice") {
+          html += `  <select class="form-select form-control select-sm input-contrast" id="${name}" required="" name="inputs[${name}]" value="'${dft}'">`;
+          var opts = [];
+          if (data.hasOwnProperty("options")) opts = data.options;
+          for (var v in opts) {
+            var addpar = "";
+            if (opts[v] == dft) addpar = 'selected="selected"';
+            html += `    <option ${addpar} value="${opts[v]}">${opts[v]}</option>`;
+          }
+          html += `  </select>`;
+        } else if (type == "string") {
+          html += `  <input class="form-control input-contrast input-sm" type="text" id="${name}" name="inputs[${name}]" value="${dft}" />`;
+        } else {
+        }
+
+        html += `  <a class="js-navigation-open Link--primary" title="${info}" data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame" href="${durl}">使用说明：${desc}</a>`;
+        html += `  </div>`;
+        html += `</div>`;
+      }
+
+      return html;
+    }
+
+    function proxyUrl(r) {
+      proxy = $("#selectproxy").val();
+      switch (proxy) {
+        case "raw.githubusercontent.com":
+          proxyurl = `https://raw.githubusercontent.com/${r}/`;
+          break;
+        case "ghproxy.com":
+          proxyurl = `https://mirror.ghproxy.com/https://raw.githubusercontent.com/${r}/`;
+          break;
+        case "fastly.jsdelivr.net":
+          proxyurl = `https://fastly.jsdelivr.net/gh/${r}@`;
+          break;
+        case "gcore.jsdelivr.net":
+          proxyurl = `https://gcore.jsdelivr.net/gh/${r}@`;
+          break;
+        case "cdn.statically.io":
+          proxyurl = `https://cdn.statically.io/gh/${r}/`;
+          break;
+        case "cdn.staticaly.com":
+          proxyurl = `https://cdn.staticaly.com/gh/${r}/`;
+          break;
+        default:
+          proxyurl = `https://raw.githubusercontent.com/${r}/`;
+          break;
+      }
+      return proxyurl;
+    }
+
+    function changeProxy() {
+      init();
+    }
+
+    function getModels() {
+      var xreleases = Object.keys(_configs).sort();
+      $("#model")[0].options.length = 0;
+      for (var i in xreleases) {
+          if (xreleases[i].at(0) == '#' ) 
+            continue
+          $("#model")[0].options.add(new Option(xreleases[i], xreleases[i]));
+      }
+      changeModel();
+    }
+
+    function changeModel() {
+
+      model = $("#model").val();
+
+      var xreleases = Object.keys(_configs[model]["platforms"]).reverse();
+      $("#version")[0].options.length = 0;
+      for (var i in xreleases) {
+        $("#version")[0].options.add(new Option(xreleases[i], xreleases[i]));
+      }
+      changeproductsimage();
+      changeVersion();
+    }
+
+    function changeproductsimage() {
+      //var model = $("#model").val().replace("#","").replace("+","plus");
+      //$('#products').html(`<img src="https://www.synology.cn/img/products/detail/${model}/heading.png" width="20%">`);
+      var model = $("#model").val().replace("#","").replace("+","%2B");
+      $('#products').html(`<img src="https://www.synology.com/api/products/getPhoto?product=${model}&type=img_s&sort=0" width="20%">`);
+    }
+
+    function changeVersion() {
+      createExtBtn("addons");
+      createExtBtn("modules");
+    }
+
+    function createExtBtn(rp) {
+      var model = $("#model").val().replace("+", "p").toLowerCase();
+      var version = $("#version").val().split("-")[1];
+      var platform = _configs[$("#model").val()]["platforms"][$("#version").val()];
+      var exts = eval('_' + rp);
+
+      var html = "";
+      html += `<div class="form-group-body" id="exts_${$('#' + rp)[0].id}" >`;
+      let idx = 1;
+      for (var ext in exts) {
+        var par = "";
+        if (exts[ext]["platforms"].indexOf(model + "_" + version) == -1)
+          if (exts[ext]["platforms"].indexOf(platform) == -1)
+            if (exts[ext]["platforms"].indexOf("_") == -1)
+              par = 'disabled="false"';
+        html += `<button type="button" class="btn btn-primary btn-sm mt-2" id="ext_btn_${ext}" ${par} onclick="return processext('${rp}', '${ext}')" autofocus="" title="${exts[ext]["description"]}">${ext}</button>&nbsp;`;
+        if (idx++ % 10 == 0) html += "<br />";
+      }
+      html += `</div>`;
+      $('#' + rp).prop("readonly", true);
+
+      $('#' + rp).parent().parent().find(`#exts_${$('#' + rp)[0].id}`).remove();
+      $('#' + rp).parent().after(html);
+    }
+
+    function processext(rp, ext) {
+      var obj = $("#ext_btn_" + ext);
+      var exts = $('#' + rp).val().split(",");
+      if (obj.hasClass("btn-danger")) {
+        //要删除掉已经输入的内容
+        exts.map((val, i) => {
+          if (val === ext) {
+            exts.splice(i, 1);
+          }
+        });
+        obj.removeClass("btn-danger");
+      } else {
+        obj.addClass("btn-danger");
+        exts.push(ext);
+      }
+      exts.map((val, i) => {
+        if (val === "") {
+          exts.splice(i, 1);
+        }
+      });
+      $('#' + rp).val(exts.join(","));
+    }
+
+    function createIssues() {
+      var form = document.getElementById("inputs");
+      let formData = new FormData(form);
+      var title = "Custom";
+      var body = {};
+      //body["info"] = "整个编译过程一般在5分钟左右(受驱动数量和版本影响), 并发较多时有概率出现未触发或者网络阻塞的情况, 如长时间未收到[bot]的回复, 请reopen或者重新创建Issue.";
+
+      for (var key in _parameters) {
+        var name = _parameters[key]["name"];
+        if (name == "title") {
+          if (formData.get(`inputs[${name}]`)) {
+            title += " " + formData.get(`inputs[${name}]`);
+          } else {
+            title += " " + new Date().toISOString().substr(0, 10);
+          }
+          continue;
+        }
+        if (formData.get(`inputs[${name}]`)) {
+          body[name] = formData.get(`inputs[${name}]`);
+        }
+      }
+
+      if (dev == "1") body["dev"] = "1";
+      body = JSON.stringify(body).replace(/\+/g, "%2b");
+      window.location.href = `https://github.com/${repo}/issues/new?title=${title}&body=${body}`;
+
+
+    }
+  </script>
+
+  <title></title>
+</head>
+
+<body class="logged-in env-production page-responsive" style="word-wrap: break-word">
+  <div class="application-main left-0 text-left p-3 mx-auto container-xl px-3 px-md-4 px-lg-5 mt-4">
+    <pre id="logoP" style="
+          display: block;
+          font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+            Liberation Mono, monospace !important;
+          font-size: 12px !important;
+          line-height: 12px !important;
+          margin: 15px 10px;
+          color: red;
+        ">
+
+ ██████╗ ███████╗██████╗ ██████╗ ██╗██╗     ██╗          ██████╗██╗   ██╗███████╗████████╗ ██████╗ ███╗   ███╗██████╗ ██╗   ██╗██╗██╗     ██████╗ 
+ ██╔══██╗██╔════╝██╔══██╗██╔══██╗██║██║     ██║         ██╔════╝██║   ██║██╔════╝╚══██╔══╝██╔═══██╗████╗ ████║██╔══██╗██║   ██║██║██║     ██╔══██╗
+ ██████╔╝█████╗  ██║  ██║██████╔╝██║██║     ██║         ██║     ██║   ██║███████╗   ██║   ██║   ██║██╔████╔██║██████╔╝██║   ██║██║██║     ██║  ██║
+ ██╔══██╗██╔══╝  ██║  ██║██╔═══╝ ██║██║     ██║         ██║     ██║   ██║╚════██║   ██║   ██║   ██║██║╚██╔╝██║██╔══██╗██║   ██║██║██║     ██║  ██║
+ ██║  ██║███████╗██████╔╝██║     ██║███████╗███████╗    ╚██████╗╚██████╔╝███████║   ██║   ╚██████╔╝██║ ╚═╝ ██║██████╔╝╚██████╔╝██║███████╗██████╔╝
+ ╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝     ╚═════╝ ╚═════╝ ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚═════╝  ╚═════╝ ╚═╝╚══════╝╚═════╝ 
+ 
+ 
+ 
+ 
+      </pre>
+    <pre id="logoD" style="
+          display: none;
+          font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+            Liberation Mono, monospace !important;
+          font-size: 12px !important;
+          line-height: 12px !important;
+          margin: 15px 10px;
+          color: red;
+        ">
+
+ ██▀███  ▓█████ ▓█████▄  ██▓███   ██▓ ██▓     ██▓        ▄████▄   █    ██   ██████ ▄▄▄█████▓ ▒█████   ███▄ ▄███▓ ▄▄▄▄    █    ██  ██▓ ██▓    ▓█████▄ 
+▓██ ▒ ██▒▓█   ▀ ▒██▀ ██▌▓██░  ██▒▓██▒▓██▒    ▓██▒       ▒██▀ ▀█   ██  ▓██▒▒██    ▒ ▓  ██▒ ▓▒▒██▒  ██▒▓██▒▀█▀ ██▒▓█████▄  ██  ▓██▒▓██▒▓██▒    ▒██▀ ██▌
+▓██ ░▄█ ▒▒███   ░██   █▌▓██░ ██▓▒▒██▒▒██░    ▒██░       ▒▓█    ▄ ▓██  ▒██░░ ▓██▄   ▒ ▓██░ ▒░▒██░  ██▒▓██    ▓██░▒██▒ ▄██▓██  ▒██░▒██▒▒██░    ░██   █▌
+▒██▀▀█▄  ▒▓█  ▄ ░▓█▄   ▌▒██▄█▓▒ ▒░██░▒██░    ▒██░       ▒▓▓▄ ▄██▒▓▓█  ░██░  ▒   ██▒░ ▓██▓ ░ ▒██   ██░▒██    ▒██ ▒██░█▀  ▓▓█  ░██░░██░▒██░    ░▓█▄   ▌
+░██▓ ▒██▒░▒████▒░▒████▓ ▒██▒ ░  ░░██░░██████▒░██████▒   ▒ ▓███▀ ░▒▒█████▓ ▒██████▒▒  ▒██▒ ░ ░ ████▓▒░▒██▒   ░██▒░▓█  ▀█▓▒▒█████▓ ░██░░██████▒░▒████▓ 
+░ ▒▓ ░▒▓░░░ ▒░ ░ ▒▒▓  ▒ ▒▓▒░ ░  ░░▓  ░ ▒░▓  ░░ ▒░▓  ░   ░ ░▒ ▒  ░░▒▓▒ ▒ ▒ ▒ ▒▓▒ ▒ ░  ▒ ░░   ░ ▒░▒░▒░ ░ ▒░   ░  ░░▒▓███▀▒░▒▓▒ ▒ ▒ ░▓  ░ ▒░▓  ░ ▒▒▓  ▒ 
+  ░▒ ░ ▒░ ░ ░  ░ ░ ▒  ▒ ░▒ ░      ▒ ░░ ░ ▒  ░░ ░ ▒  ░     ░  ▒   ░░▒░ ░ ░ ░ ░▒  ░ ░    ░      ░ ▒ ▒░ ░  ░      ░▒░▒   ░ ░░▒░ ░ ░  ▒ ░░ ░ ▒  ░ ░ ▒  ▒ 
+  ░░   ░    ░    ░ ░  ░ ░░        ▒ ░  ░ ░     ░ ░      ░         ░░░ ░ ░ ░  ░  ░    ░      ░ ░ ░ ▒  ░      ░    ░    ░  ░░░ ░ ░  ▒ ░  ░ ░    ░ ░  ░ 
+   ░        ░  ░   ░              ░      ░  ░    ░  ░   ░ ░         ░           ░               ░ ░         ░    ░         ░      ░      ░  ░   ░    
+                 ░                                      ░                                                             ░                       ░      
+      </pre>
+      <div class="image" id="products">
+        <img src="https://www.synology.cn/img/products/detail/DS920plus/heading.png" width="20%">
+      </div>
+    <div class="flex-auto min-width-0 width-fit mr-3">
+      <div class="d-flex flex-wrap flex-items-center wb-break-word f3 text-normal">
+        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true"
+          class="octicon octicon-repo color-fg-muted mr-2">
+          <path fill-rule="evenodd"
+            d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
+          </path>
+        </svg>
+        <strong itemprop="name" class="mr-2 flex-self-stretch">
+          <a id="titleA" data-pjax="#repo-content-pjax-container" data-turbo-frame="repo-content-turbo-frame"
+            href="#"></a>
+        </strong>
+        <span id="titleLabel" class="Label Label--secondary v-align-middle mr-1" id="titlelabel"
+          style="color: red">Public</span>
+      </div>
+      <div class="btn-link tabnav-tab preview-tab js-preview-tab flex-1 flex-md-auto width-full">
+        <marquee id="content" direction="up" height="36" scrollamount="1" onMouseOut="this.start()"
+          onMouseOver="this.stop()">
+        </marquee>
+      </div>
+    </div>
+    <div data-replace-remote-form-target="" class="workflow-dispatch">
+      <form id="inputs">
+        <button type="button" class="btn State--merged" onclick="return createIssues()" autofocus="">
+          创建
+        </button>
+      </form>
+    </div>
+  </div>
+  <footer class="footer width-full container-xl mt-3 text-center color-fg-muted">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon mr-2" href="https://github.com/wjz304">
+      <img class="avatar rounded-2 avatar-user" src="https://avatars.githubusercontent.com/u/5615843?s=88&amp;v=4"
+        width="40" height="40" alt="@wjz304" />
+    </a>
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon mr-2" href="https://github.com/htmambo">
+      <img class="avatar rounded-2 avatar-user" src="https://avatars.githubusercontent.com/u/14806317?s=88&amp;v=4"
+        width="40" height="40" alt="@htmambo" />
+    </a>
+    <span> © 2022 Ing, Htmambo, Inc. </span>
+  </footer>
+</body>
+
+</html>
