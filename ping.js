@@ -7,12 +7,16 @@ window.onload = function() {
 	let flag_domain = doname.test(document.domain);
 	if(flag_domain){//是域名
 		// 域名
-		//alert(document.domain)
-		ping(externalurl)
-		//alert(document.domain)
-		
+		if(ping(externalurl)){
+			
+			window.location.replace(externalurl);
+			
+		}else{
+			window.location.replace(error);
+		};		
 	}else{
 		// ip
+		//ping(externalurl)
 		window.location.replace(internalurl);
 		//alert(internalurl)
 	};
@@ -22,20 +26,21 @@ window.onload = function() {
 		var flag = false;  //无法访问
 		img.onload = function () {
 			flag = true;
-			window.location.replace(ip);
 			console.log('ok');
+			return true;
+			
 		};
 		img.onerror = function () {
 			flag = true;
-			//alert(ip)
-			window.location.replace(ip);
+			alert(externalurl)
 			console.log('ok');
+			return true;
 		};
 		var timer = setTimeout(function () {
 			if (!flag) {    //如果真的无法访问
 				flag = false;
-				window.location.replace(error);
 				console.log('failed');
+				return false;
 			}
 		}, 1000);
 	}
