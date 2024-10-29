@@ -28,7 +28,6 @@ window.onload = function() {
 		};
 		img.onerror = function () {
 			flag = true;
-			alert(externalurl)
 			console.log('ok');
 			window.location.replace(externalurl);
 			return true;
