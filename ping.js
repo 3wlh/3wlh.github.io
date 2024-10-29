@@ -36,7 +36,7 @@ window.onload = function() {
 			if (!flag) {    //如果真的无法访问
 				flag = false;
 				console.log('failed');
-				//window.location.replace(error);
+				window.location.replace(error);
 				return false;
 			}
 		}, 1500);
