@@ -8,37 +8,39 @@ window.onload = function() {
 	let flag_domain = doname.test(document.domain);
 	if(flag_domain){//是域名
 		// 域名
-		ping(externalurl)
+		checkurl(externalurl)
 	}else{
 		// ip
 		//ping(externalurl)
 		window.location.replace(internalurl);
 		//alert(internalurl)
 	};
-	function ping (ip) {
-		var img = new Image();
-		img.src = ip;
-		var flag = false;  //无法访问
-		img.onload = function () {
-			flag = true;
-			console.log('ok');
-			window.location.replace(externalurl);
-			return true;
-			
-		};
-		img.onerror = function () {
-			flag = true;
-			console.log('ok');
-			window.location.replace(externalurl);
-			return true;
-		};
-		var timer = setTimeout(function () {
-			if (!flag) {    //如果真的无法访问
-				flag = false;
-				console.log('failed');
-				window.location.replace(error);
-				return false;
-			}
-		}, 1500);
-	}
+	function checkurl(url) {
+    return new Promise((resolve) => {
+      console.log(`正在检查: ${url}`);           
+      const img = new Image();
+      const timeout = setTimeout(() => {
+        console.log(`${url} 不可访问: 连接超时`);
+        img.src = '';
+        window.location.href = url;
+        resolve(false);
+      }, 5000);
+
+      img.onload = function() {
+        clearTimeout(timeout);
+        console.log(`${url} 可访问`);
+        window.location.href = url;
+        resolve(true);
+      };
+
+      img.onerror = function() {
+        clearTimeout(timeout);
+        console.log(`${url} 不可访问`);
+        window.location.href = url;
+        resolve(false);
+      };
+
+      img.src = url + '/favicon.ico?t=' + new Date().getTime();
+    });
+  }
 }
