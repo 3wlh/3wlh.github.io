@@ -22,7 +22,7 @@ window.onload = function() {
       const timeout = setTimeout(() => {
         console.log(`${url} 不可访问: 连接超时`);
         img.src = '';
-        window.location.href = url;
+        window.location.href = error;
         resolve(false);
       }, 5000);
 
@@ -36,7 +36,7 @@ window.onload = function() {
       img.onerror = function() {
         clearTimeout(timeout);
         console.log(`${url} 不可访问`);
-        window.location.href = url;
+        window.location.href = error;
         resolve(false);
       };
 
