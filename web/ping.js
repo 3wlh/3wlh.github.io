@@ -36,7 +36,7 @@ window.onload = function() {
       img.onerror = function() {
         clearTimeout(timeout);
         console.log(`${url} 不可访问`);
-        window.location.href = error;
+        //window.location.href = error;
         resolve(false);
       };
 
