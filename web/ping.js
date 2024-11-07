@@ -8,7 +8,7 @@ window.onload = function() {
 	let flag_domain = doname.test(document.domain);
 	if(flag_domain){//是域名
 		// 域名
-		checkurl(externalurl)
+		getURL(externalurl)
 	}else{
 		// ip
 		//ping(externalurl)
@@ -43,4 +43,26 @@ window.onload = function() {
       img.src = url + '/favicon.ico?t=' + new Date().getTime();
     });
   }
+  function getURL(url) {
+    function getXmlHttpRequest() {
+      if (window.XMLHttpRequest) {
+         return new XMLHttpRequest();
+      }
+      else if (window.ActiveXObject) {
+        return new ActiveXObject("Microsoft.XMLHTTP");
+      }
+    };
+    var xmlhttp = getXmlHttpRequest();
+    xmlhttp.open("GET", url, false); //第三个参数表示是否异步
+    xmlhttp.send();
+    if (xmlhttp.readyState == 4) {
+      if (xmlhttp.status == 200) {
+        console.log(`${url} 可访问`);
+        return true;
+      } else {
+        console.log(`${url} 不可访问`);
+        return false;
+      }
+    }
+  } 
 }
