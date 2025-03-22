@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>软件版本更新</title>
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=GB2312">
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+</head>
+
+<style>
+  input {
+    text-align: center;
+  }
+</style>
+
+
+<body>
+    <br>
+    <div style="display: grid; place-items: center; height: 80vh;">
+    <form action="/update.php" method="post">
+    
+        <table border="5" bordercolor="#FF6688" cellpadding=12 cellspacing=5 width=350>
+            <!-- 由此可见，<th>和<td>标签都是用于表格单元格显示的。不同的是<th>在单元格中加粗显示-->
+            <tr>
+                <!-- 占两列 -->
+                <th colspan="2">软件版本更新</th>
+            </tr>
+            <tr>
+                <td>文件名称：</td>
+                <td><input type="text" name="file" value=""><br /></td>
+            </tr>
+            <tr>
+                <td>软件版本：</td>
+                <td><input type="text" name="version" /><br /></td>
+            </tr>
+            <tr>
+                <td>更新密码：</td>
+                <td><input type="password" name="pwd" /><br /></td>
+            </tr>
+            <tr>
+                <th colspan="2"><input type="reset" value="清除数据" /> <input
+                    type="submit" value="提交数据" /></th>
+            </tr>
+        </table>
+    </form>
+    </div> 
+</body>
+</html>

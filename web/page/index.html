@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="shortcut icon" href="web_data/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="web_data/css/style.css" />
+    <script src="web_data/js/jquery.min.js"></script>
+    <script src="web_data/js/particles.min.js"></script>
+    <script src="web_data/js/search.js"></script>
+    <script src="web_data/js/automatic.js"></script>
+    <title>Home_3wlh</title></head>
+  
+  <body>
+    <div id="particles-js" style="position:absolute; top: 0; z-index: -1; width: 100%;height: 100%;">
+      <canvas class="particles-js-canvas-el" width="1280" height="720" style="width: 100%; height: 100%;"></canvas>
+    </div>
+    <script src="web_data/js/background.js"></script>
+    <div id="wrap">
+      <div id="top">
+        <div id="logo">
+          <div class="type-js headline">
+          <h1>3wlh</h1>   
+          <div id="kg-btn" class="">
+            <button id="btn" onclick="getValue()"></button>
+          </div> 
+        </div>
+    </div>
+          <div id="search_form" class="search-section" target="_blank">
+            <div class="search-left">
+            <div id="search_logo" data-type="google" class="search-logo"></div>
+            <div class="input-wrap">
+          <input id="search_keyword"
+                class="search-input"
+                name="keyword"
+                autocomplete="off"
+                type="text"
+                placeholder="◎搜索..."></input>
+                <!-- maxlength="100" -->
+          <div class="clear-keyword" id="search_submit" title="搜索">⚲</div>
+          </div>
+            <ul id="search_methods" class="search-methods">
+            <li data-type="bing" class="search-item bing">必应</li>
+            <li data-type="baidu" class="search-item baidu">百度</li>
+            <li data-type="google" class="search-item google">谷歌</li>
+          </ul>  
+            <!--  <ul id="search_result" class="search-result"> --> 
+          </ul>
+          </div>
+        </div>
+          
+          
+		<div id="main">
+		<!-- 外网访问地址 -->
+			<div id="domain" class="app">
+        <ul>
+          
+          <li>
+            <a href="http://3wlh.com:5000" target="_blank"><img class="shake" src="https://img.3wking.cn/file/c23d3bc43135e543ae8fe.png" /><strong>DSM管理</strong></a>
+          </li>
+          <li>
+            <a href="http://3wlh.com:8" target="_blank"><img class="shake" src="https://img.3wking.cn/file/f9833617887da4aff7dd2.png" /><strong>Openwrt</strong></a>
+          </li>
+          <li>
+						<a href="http://3wlh.com:6" target="_blank"><img class="shake" src="https://img.3wking.cn/file/79d084c0783788ed33536.png" /><strong>ASUS</strong></a>
+					</li>
+          <li>
+            <a href="http://3wlh.com:7000" target="_blank"><img class="shake" src="https://img.3wking.cn/file/7b532e7963737f21dc267.png" /><strong>文件管理</strong></a>
+          </li>
+          <li>
+            <a href="http://3wlh.com:5244" target="_blank"><img class="shake" src="https://img.3wking.cn/file/5328fcf3315c605653c1b.png" /><strong>Alist</strong></a>
+          </li>						
+        </ul>
+			</div>
+		<!-- 内网网访问地址 -->
+			<div id="ip" class="app">
+				<ul>
+					<li>
+						<a href="http://10.10.10.252:5000/" target="_blank"><img class="shake" src="https://img.3wking.cn/file/c23d3bc43135e543ae8fe.png"/><strong>DSM管理</strong></a>
+					</li>
+					<li>
+						<a href="http://10.10.10.254/" target="_blank"><img class="shake" src="https://img.3wking.cn/file/f9833617887da4aff7dd2.png" /><strong>Openwrt</strong></a>
+					</li>
+					<li>
+						<a href="http://10.10.10.253/" target="_blank"><img class="shake" src="https://img.3wking.cn/file/79d084c0783788ed33536.png" /><strong>ASUS</strong></a>
+					</li>
+					<li>
+						<a href="http://10.10.10.250:8006/" target="_blank"><img class="shake" src="https://img.3wking.cn/file/a4437b4c852ea1515975d.png" /><strong>PVE</strong></a>
+					</li>
+					<li>
+						<a href="http://10.10.10.252:7000/" target="_blank"><img class="shake" src="https://img.3wking.cn/file/7b532e7963737f21dc267.png" /><strong>文件管理</strong></a>
+					</li>
+					<li>
+						<a href="http://10.10.10.254:8989/" target="_blank"><img class="shake" src="https://img.3wking.cn/file/dba9e2922b8c73e8f81b8.png" /><strong>Filebrowser</strong></a>
+					</li>
+					<li>
+						<a href="http://10.10.10.254:5244/" target="_blank"><img class="shake" src="https://img.3wking.cn/file/5328fcf3315c605653c1b.png" /><strong>Alist</strong></a>
+					</li>
+					<li>
+						<a href="http://10.10.10.2/" target="_blank"><img class="shake" src="https://img.3wking.cn/file/14921ab42677f8a3c7035.png" /><strong>超微X10</strong></a>
+					</li>
+					<li>
+						<a href="http://10.10.10.254/" target="_blank"><img class="shake" src="https://img.3wking.cn/file/2722e37f5b0ea7c2c8a72.png" /><strong>VS_Code</strong></a>
+					</li>
+					<li>
+						<a href="http://10.10.10.8" target="_blank"><img class="shake" src="https://img.3wking.cn/file/7a58d193760f1ed05d437.png" /><strong>NAS电源</strong></a>
+					</li>
+					<li>
+						<a href="http://10.10.10.7" target="_blank"><img class="shake" src="https://img.3wking.cn/file/7a58d193760f1ed05d437.png" /><strong>服务器电源</strong></a>
+					</li>
+				</ul>
+    </div>        
+  </div>
+  
+    </div>
+        </div>
+  </body>
+
+</html>

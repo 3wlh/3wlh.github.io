@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>X</title>
+</head>
+   <body>
+   <h1>正在检查可用网址...</h1>
+   <div id="status"></div>
+    <script>
+        // 预设的网址列表
+        const urls = [
+            'https://.xyz',
+            'https://.xyz',
+            'https://.xyz'
+        ];
+
+        // 更新状态信息
+        function updateStatus(message) {
+            const statusDiv = document.getElementById('status');
+            const url = message.match(/https:\/\/[^\s]+/);
+            if (url) {
+                statusDiv.innerHTML += message.replace(url[0], `<a href="${url[0]}" target="_blank">${url[0]}</a>`) + '\n';
+            } else {
+                statusDiv.innerHTML += message + '\n';
+            }
+            console.log(message);
+        }
+
+        // 检查单个URL是否可访问
+        function checkUrl(url) {
+            return new Promise((resolve) => {
+                //updateStatus(`正在检查: ${url}`);
+                
+                const img = new Image();
+                const timeout = setTimeout(() => {
+                    //updateStatus(`${url} 不可访问: 连接超时`);
+                    img.src = '';
+                    resolve(false);
+                }, 5000);
+
+                img.onload = function() {
+                    clearTimeout(timeout);
+                    //updateStatus(`${url} 可访问`);
+                    resolve(true);
+                };
+
+                img.onerror = function() {
+                    clearTimeout(timeout);
+                    //updateStatus(`${url} 不可访问`);
+                    resolve(false);
+                };
+
+                img.src = url + '/favicon.ico?t=' + new Date().getTime();
+            });
+        }
+
+        // 检查所有URL并跳转到第一个可访问的URL
+        async function checkAndRedirect() {
+            for (const url of urls) {
+                const isAccessible = await checkUrl(url);
+                if (isAccessible) {
+                    //updateStatus(`正在跳转到: ${url} (如未自动跳转请点击链接)`);
+                    setTimeout(() => {
+                        window.location.href = url;
+                    }, 1000);  // 延迟1秒后跳转，以便看到最后的状态信息
+                    return;
+                }
+            }
+            updateStatus('没有找到可访问的网址');
+            document.querySelector('.spinner').style.display = 'none';
+        }
+
+        // 页面加载完成后立即开始检查
+        window.onload = checkAndRedirect;
+    </script>
+  <body>
+</html>
