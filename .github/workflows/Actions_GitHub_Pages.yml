@@ -19,17 +19,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
-          delete_workflow_pattern: Pages
+          delete_workflow_pattern: Pages|pages
           #retain_days: 1
           keep_minimum_runs: 0
-          use_daily_retention: true
-      
-      - name: Delete workflow runs for current pages
-        uses: Mattraks/delete-workflow-runs@main
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.repository }}
-          delete_workflow_pattern: pages
-          retain_days: 1
-          keep_minimum_runs: 1
           use_daily_retention: true
