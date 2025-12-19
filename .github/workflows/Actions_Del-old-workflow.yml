@@ -1,4 +1,4 @@
-name: Actions Del old workflow
+name: Actions GitHub Pages
 on:
 # Run weekly, at 00:00 on sunday.
   schedule:
@@ -27,14 +27,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
-          delete_workflow_pattern: tttpages
+          delete_workflow_pattern: pages
           retain_days: 1
           keep_minimum_runs: 1
           use_daily_retention: true
-          
-      - name: Delete deployment
-        uses: strumwolf/delete-deployment-environment@v2.3.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment: github-pages
-          onlyRemoveDeployments: true
