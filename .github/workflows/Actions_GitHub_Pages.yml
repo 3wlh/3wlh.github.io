@@ -1,9 +1,9 @@
 name: Actions GitHub Pages
 on:
-# Run weekly, at 00:00 on sunday.
+  push:
+    branches: [main]
   schedule:
     - cron: "0 16 * * 0"
-  branches: [main]
   workflow_dispatch:
     
 
