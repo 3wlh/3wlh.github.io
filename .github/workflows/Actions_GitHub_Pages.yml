@@ -3,8 +3,9 @@ on:
 # Run weekly, at 00:00 on sunday.
   schedule:
     - cron: "0 16 * * 0"
+  branches: [main]
   workflow_dispatch:
-  branches: [main]  
+    
 
 jobs:
   del_runs:
