@@ -9,17 +9,5 @@ on:
 
 jobs:
   del_runs:
-    runs-on: ubuntu-latest
-    permissions:
-      actions: write
-      contents: read
-    steps:
-      - name: Delete workflow runs for current workflow
-        uses: Mattraks/delete-workflow-runs@main
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.repository }}
-          delete_workflow_pattern: Pages|pages
-          #retain_days: 1
-          keep_minimum_runs: 0
-          use_daily_retention: true
+    uses: 3wlh/Actions/.github/workflows/Call_Actions.yml@main
+    secrets: inherit
