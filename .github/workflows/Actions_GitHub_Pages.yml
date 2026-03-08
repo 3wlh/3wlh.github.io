@@ -8,6 +8,6 @@ on:
     
 
 jobs:
-  del_runs:
+  del_Actions:
     uses: 3wlh/Actions/.github/workflows/Call_Actions.yml@main
     secrets: inherit
