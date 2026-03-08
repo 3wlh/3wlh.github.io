@@ -25,3 +25,5 @@ jobs:
           use_daily_retention: true
           
       - uses: 3wlh/Actions-remove-commits@main
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
