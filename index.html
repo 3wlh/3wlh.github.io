@@ -1,18 +1,68 @@
-<!DOCTYPE html> 
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <title>网址跳转</title>
-    <!--1、在head中引入-->
-    <script src="./web/ping.js"></script>
+    <script>
+        async function getTxtRecords(domain) {
+            // 校验域名参数
+            if (!domain) throw new Error("域名不能为空");
+            
+            const url = `https://dns.alidns.com/resolve?name=${encodeURIComponent(domain)}&type=TXT`;
+            const res = await fetch(url, {
+                headers: { accept: 'application/dns-json' }
+            });
+            
+            if (!res.ok) {
+                throw new Error(`请求失败：${res.status} ${res.statusText}`);
+            }
+
+            const data = await res.json();
+            // 无 TXT 记录返回空数组
+            if (!data.Answer || data.Answer.length === 0) {
+                return [];
+            }
+
+            // 提取并清理 TXT 记录（去掉首尾的引号）
+            return data.Answer
+                .filter(item => item.type === 16) // 16 = TXT 记录类型
+                .map(item => item.data.replace(/^"|"$/g, ''));
+        }
+
+        /**
+         * 主执行函数：获取TXT记录并处理跳转
+         */
+        async function handleRedirect() {
+            try {
+                // 目标域名（可根据需要修改）
+                const targetDomain = "home.3wlh.cn";
+                // 获取TXT记录
+                const txtRecords = await getTxtRecords(targetDomain);
+                
+                // 处理空记录情况
+                if (txtRecords.length === 0) {
+                    console.error("未找到该域名的TXT记录");
+                    return;
+                }
+
+                // 取第一条TXT记录作为跳转地址（可根据需求调整）
+                const targetIp = txtRecords[0];
+                // 拼接跳转URL并跳转
+                const redirectUrl = `http://${targetIp}:8`;
+                console.log("即将跳转到：", redirectUrl);
+                window.location.href = redirectUrl;
+
+            } catch (error) {
+                // 捕获所有异常并提示
+                console.error("跳转失败：", error.message);
+                alert(`跳转失败：${error.message}`);
+            }
+        }
+
+        // 页面加载完成后执行跳转逻辑
+        window.onload = handleRedirect;
+    </script>
 </head>
 <body>
-  <div style='display:none'>
-    <!--2、在body中引入-->
-    <a id="external" name="外网">http://3wlh.com:8</a>
-    <a id="internal" name="内网">http://10.10.10.254</a>
-    <a id="error" name="错误">/web/404.html</a>
-    <!--<script src="index.js"></script>-->
-  </div>
 </body>
 </html>
