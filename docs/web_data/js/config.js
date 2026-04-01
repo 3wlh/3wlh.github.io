@@ -73,7 +73,7 @@ const config = {
           "title": "Photopea",
           "intranet": "http://10.10.10.250:8887",
           "external": "",
-          "icon": "./web_data/img/Photopea.png"
+          "icon": "./web_data/img/photopea.png"
         }
       ]
     },
@@ -133,7 +133,7 @@ const config = {
       ]
     },
     {
-      "categories": "仓库",
+      "categories": "常用",
       "links": [
         {
           "title": "OpenWrt定制",
