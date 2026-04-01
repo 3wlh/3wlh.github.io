@@ -44,7 +44,9 @@ function noCorsFetch(url, timeout = 500) {
 }
 
 async function initMode() {
+  const url="https://10.10.10.250"
   try {
+    console.log('内网检测:'+url);
     const isIntranetReachable = await noCorsFetch('https://10.10.10.254', 100);
     console.log('内网是否可访问:', isIntranetReachable);
     isIntranetMode = isIntranetReachable;
