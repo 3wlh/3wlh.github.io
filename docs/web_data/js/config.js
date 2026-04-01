@@ -4,27 +4,11 @@ const config = {
     "logo": "3wlh"
   },
   "search": {
-    "enabled": true,
-    "default": "google",
+    "default": "必应",
     "engines": [
-      {
-        "name": "必应",
-        "type": "bing",
-        "url": "https://com.bing.com/search?q=",
-        "icon": "web_data/css/img/bing.png"
-      },
-      {
-        "name": "百度",
-        "type": "baidu",
-        "url": "https://www.baidu.com/s?wd=",
-        "icon": "web_data/css/img/baidu.png"
-      },
-      {
-        "name": "谷歌",
-        "type": "google",
-        "url": "https://www.google.com/search?q=",
-        "icon": "web_data/css/img/google.png"
-      }
+      { "name": "必应", "url": "https://cn.bing.com/search?q=", "icon": "web_data/css/img/bing.png" },
+      { "name": "谷歌", "url": "https://www.google.com/search?q=", "icon": "web_data/css/img/google.png" },
+      { "name": "百度", "url": "https://www.baidu.com/s?wd=", "icon": "web_data/css/img/baidu.png" } 
     ]
   },
   "webpage": [
@@ -89,7 +73,7 @@ const config = {
           "title": "Photopea",
           "intranet": "http://10.10.10.250:8887",
           "external": "",
-          "icon": "./web_data/img/photopea.png"
+          "icon": "./web_data/img/Photopea.png"
         }
       ]
     },

@@ -1,63 +1,54 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="renderer" content="webkit" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <link rel="shortcut icon" href="web_data/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="web_data/css/style.css" />
-    <script src="web_data/js/jquery.min.js"></script>
-    <script src="web_data/js/particles.min.js"></script>
-    <script src="web_data/js/search.js"></script>
-    <script src="web_data/js/dns.js"></script>
-    <script src="web_data/config.js"></script>
-    <script src="web_data/js/config-loader.js"></script>
-    <title>Home_3wlh</title></head>
-  
-  <body>
-    <div id="particles-js" style="position:absolute; top: 0; z-index: -1; width: 100%;height: 100%;">
-      <canvas class="particles-js-canvas-el" width="1280" height="720" style="width: 100%; height: 100%;"></canvas>
-    </div>
-    <script src="web_data/js/background.js"></script>
-    <div id="wrap">
-      <div id="top">
-        <div id="logo">
-          <div class="type-js headline">
-          <h1 id="site-logo">3wlh</h1>   
-          <div id="kg-btn" class="">
-            <button id="btn" onclick="getValue()"></button>
-          </div> 
-        </div>
-    </div>
-          <div id="search_form" class="search-section" target="_blank">
-            <div class="search-left">
-            <div id="search_logo" data-type="google" class="search-logo"></div>
-            <div class="input-wrap">
-          <input id="search_keyword"
-                class="search-input"
-                name="keyword"
-                autocomplete="off"
-                type="text"
-                placeholder="◎搜索..."></input>
-                <!-- maxlength="100" -->
-          <div class="clear-keyword" id="search_submit" title="搜索">⚲</div>
-          </div>
-            <ul id="search_methods" class="search-methods">
-            </ul>  
-            <!--  <ul id="search_result" class="search-result"> --> 
-          </ul>
-          </div>
-        </div>
-          
-          
-		<div id="main">
-			<div id="links" class="app">
-			</div>        
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="renderer" content="webkit" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="shortcut icon" href="web_data/css/img/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="web_data/css/style.css" />
+  <title>Home</title>
+</head>
+
+<body>
+  <div id="particles-js" class="particles-bg">
+    <canvas class="particles-js-canvas-el"></canvas>
   </div>
   
-    </div>
+  <div id="wrap">
+    <div id="top">
+      <div id="logo">
+        <div class="type-js headline">
+          <h1 id="site-logo"></h1>
+          <div id="kg-btn">
+            <button id="btn" onclick="getValue()" aria-label="切换内外网"></button>
+          </div>
         </div>
-  </body>
+      </div>
+      
+      <div id="search_form" class="search-section" target="_blank">
+        <div class="search-left">
+          <div id="search_logo" data-type="google" class="search-logo"></div>
+          <div class="input-wrap">
+            <input id="search_keyword" class="search-input" name="keyword" autocomplete="off" type="text" placeholder="请输入搜索内容..." />
+            <div class="clear-keyword" id="search_submit">搜索</div>
+          </div>
+          <ul id="search_methods" class="search-methods"></ul>
+        </div>
+      </div>
+    </div>
+    
+    <div id="main">
+      <div id="links" class="app"></div>
+    </div>
+  </div>
 
+  <script src="web_data/js/jquery.min.js"></script>
+  <script src="web_data/js/particles.min.js"></script>
+  <script src="web_data/js/search.js"></script>
+  <script src="web_data/js/dns.js"></script>
+  <script src="web_data/js/config.js"></script>
+  <script src="web_data/js/loader_config.js"></script>
+  <script src="web_data/js/background.js"></script>
+</body>
 </html>
