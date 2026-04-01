@@ -43,31 +43,29 @@ function noCorsFetch(url, timeout = 500) {
   .finally(() => clearTimeout(timeoutId));
 }
 
-function probeImage(url, timeout = 500) {
+function checkIntranetByImage(url, timeout = 100) {
   return new Promise((resolve) => {
     const img = new Image();
     const timer = setTimeout(() => {
       img.src = '';
       resolve(false);
     }, timeout);
-    img.onload = () => {
+    
+    img.onload = img.onerror = () => {
       clearTimeout(timer);
       resolve(true);
     };
-    img.onerror = () => {
-      clearTimeout(timer);
-      resolve(false);
-    };
-    img.src = url;
+    
+    img.src = url + '/favicon.ico?t=' + Date.now();
   });
 }
 
-
 async function initMode() {
-  const url="http://10.10.10.254:80"
+  const testUrl = "http://10.10.10.254";
+  
   try {
-    console.log('内网检测:'+url);
-    const isIntranetReachable = await probeImage(url, 100);
+    console.log('内网检测: ' + testUrl);
+    const isIntranetReachable = await checkIntranetByImage(testUrl, 100);
     console.log('内网是否可访问:', isIntranetReachable);
     isIntranetMode = isIntranetReachable;
   } catch (error) {
