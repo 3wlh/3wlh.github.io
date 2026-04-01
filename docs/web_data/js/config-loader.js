@@ -55,7 +55,6 @@ function checkIntranetByImage(url, timeout = 100) {
       clearTimeout(timer);
       resolve(true);
     };
-    
     img.src = url + '/favicon.ico?t=' + Date.now();
   });
 }
