@@ -1,68 +1,63 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <title>网址跳转</title>
-    <script>
-        async function getTxtRecords(domain) {
-            // 校验域名参数
-            if (!domain) throw new Error("域名不能为空");
-            
-            const url = `https://dns.alidns.com/resolve?name=${encodeURIComponent(domain)}&type=TXT`;
-            const res = await fetch(url, {
-                headers: { accept: 'application/dns-json' }
-            });
-            
-            if (!res.ok) {
-                throw new Error(`请求失败：${res.status} ${res.statusText}`);
-            }
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="shortcut icon" href="web_data/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="web_data/css/style.css" />
+    <script src="web_data/js/jquery.min.js"></script>
+    <script src="web_data/js/particles.min.js"></script>
+    <script src="web_data/js/search.js"></script>
+    <script src="web_data/js/dns.js"></script>
+    <script src="config.js"></script>
+    <script src="web_data/js/config-loader.js"></script>
+    <title>Home_3wlh</title></head>
+  
+  <body>
+    <div id="particles-js" style="position:absolute; top: 0; z-index: -1; width: 100%;height: 100%;">
+      <canvas class="particles-js-canvas-el" width="1280" height="720" style="width: 100%; height: 100%;"></canvas>
+    </div>
+    <script src="web_data/js/background.js"></script>
+    <div id="wrap">
+      <div id="top">
+        <div id="logo">
+          <div class="type-js headline">
+          <h1 id="site-logo">3wlh</h1>   
+          <div id="kg-btn" class="">
+            <button id="btn" onclick="getValue()"></button>
+          </div> 
+        </div>
+    </div>
+          <div id="search_form" class="search-section" target="_blank">
+            <div class="search-left">
+            <div id="search_logo" data-type="google" class="search-logo"></div>
+            <div class="input-wrap">
+          <input id="search_keyword"
+                class="search-input"
+                name="keyword"
+                autocomplete="off"
+                type="text"
+                placeholder="◎搜索..."></input>
+                <!-- maxlength="100" -->
+          <div class="clear-keyword" id="search_submit" title="搜索">⚲</div>
+          </div>
+            <ul id="search_methods" class="search-methods">
+            </ul>  
+            <!--  <ul id="search_result" class="search-result"> --> 
+          </ul>
+          </div>
+        </div>
+          
+          
+		<div id="main">
+			<div id="links" class="app">
+			</div>        
+  </div>
+  
+    </div>
+        </div>
+  </body>
 
-            const data = await res.json();
-            // 无 TXT 记录返回空数组
-            if (!data.Answer || data.Answer.length === 0) {
-                return [];
-            }
-
-            // 提取并清理 TXT 记录（去掉首尾的引号）
-            return data.Answer
-                .filter(item => item.type === 16) // 16 = TXT 记录类型
-                .map(item => item.data.replace(/^"|"$/g, ''));
-        }
-
-        /**
-         * 主执行函数：获取TXT记录并处理跳转
-         */
-        async function handleRedirect() {
-            try {
-                // 目标域名（可根据需要修改）
-                const targetDomain = "home.19970101.xyz";
-                // 获取TXT记录
-                const txtRecords = await getTxtRecords(targetDomain);
-                
-                // 处理空记录情况
-                if (txtRecords.length === 0) {
-                    console.error("未找到该域名的TXT记录");
-                    return;
-                }
-
-                // 取第一条TXT记录作为跳转地址（可根据需求调整）
-                const targetIp = txtRecords[0];
-                // 拼接跳转URL并跳转
-                const redirectUrl = `http://${targetIp}:8`;
-                console.log("即将跳转到：", redirectUrl);
-                window.location.href = redirectUrl;
-
-            } catch (error) {
-                // 捕获所有异常并提示
-                console.error("跳转失败：", error.message);
-                alert(`跳转失败：${error.message}`);
-            }
-        }
-
-        // 页面加载完成后执行跳转逻辑
-        window.onload = handleRedirect;
-    </script>
-</head>
-<body>
-</body>
 </html>
