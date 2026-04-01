@@ -64,7 +64,7 @@ function probeImage(url, timeout = 500) {
 
 
 async function initMode() {
-  const url="https://10.10.10.254:80"
+  const url="http://10.10.10.254:80"
   try {
     console.log('内网检测:'+url);
     const isIntranetReachable = await probeImage(url, 100);
