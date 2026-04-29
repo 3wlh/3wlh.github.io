@@ -7,3 +7,5 @@ jobs:
   Call_Actions:
     uses: 3wlh/Actions/.github/workflows/Call_Actions.yml@main
     secrets: inherit
+    with:
+      auto: false
