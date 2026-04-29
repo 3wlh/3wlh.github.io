@@ -1,6 +1,10 @@
 name: Actions Remove Workflow Runs
 
 on:
+   push:
+    branches:
+      - main
+      - master
   workflow_dispatch:
 
 jobs:
