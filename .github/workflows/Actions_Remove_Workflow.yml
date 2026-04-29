@@ -8,4 +8,4 @@ jobs:
     uses: 3wlh/Actions/.github/workflows/Call_Actions.yml@main
     secrets: inherit
     with:
-      auto: false
+      all: false
