@@ -1,14 +1,9 @@
 name: Actions Remove Workflow Runs
 
 on:
-  workflow_call:
-    inputs:
-      reuse:
-        type: boolean  
   workflow_dispatch:
 
 jobs:
   Call_Actions:
-    if: ${{ inputs.method == 'docker' }}
     uses: 3wlh/Actions/.github/workflows/Call_Actions.yml
     secrets: inherit
